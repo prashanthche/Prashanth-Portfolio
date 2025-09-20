@@ -1,146 +1,312 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prashanth Sankar | Portfolio</title>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prashanth Sankar — IT Support Specialist</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Prashanth Sankar — IT Infrastructure & Technical Support Specialist with 10 years of international experience" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    :root{
+      --bg:#0b0f14;
+      --card:rgba(255,255,255,0.04);
+      --glass:rgba(255,255,255,0.04);
+      --muted:rgba(255,255,255,0.6);
+      --accent:#2b6ef6; /* royal blue */
+      --accent-2:#c59a2a; /* gold */
+      --glass-border:rgba(255,255,255,0.06);
+      --radius:12px;
+      font-family: 'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 400px at 10% 10%, rgba(43,110,246,0.07), transparent),
+                  radial-gradient(900px 300px at 90% 90%, rgba(197,154,42,0.04), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:32px;
+    }
+    .container{max-width:1100px;margin:0 auto}
+
+    /* Header / Hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:28px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(8px);border:1px solid var(--glass-border);padding:28px;border-radius:18px}
+    .hero h1{font-size:28px;margin:0 0 6px}
+    .hero .title{font-weight:600;color:var(--accent);}
+    .tagline{color:var(--muted);margin-bottom:14px}
+    .cta-row{display:flex;gap:12px;flex-wrap: wrap;}
+    .btn{padding:10px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block;text-align:center}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#58a6ff);box-shadow:0 6px 24px rgba(43,110,246,0.12);border:none}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    .avatar{width:320px;height:320px;border-radius:18px;overflow:hidden;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* About + Skills */
+    .grid-2{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-bottom:22px}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;border:1px solid var(--glass-border);box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+    .muted{color:var(--muted)}
+    .skills{display:flex;flex-direction:column;gap:10px}
+    .skill{display:flex;justify-content:space-between;align-items:center}
+    .skill .bar{height:10px;background:rgba(255,255,255,0.06);border-radius:8px;flex:1;margin-left:10px;overflow:hidden}
+    .skill .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:22px}
+    .timeline:before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
+    .tl-item{position:relative;padding:18px 0 18px 22px}
+    .tl-item:before{content:'';position:absolute;left:-6px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+    .tl-item h4{margin:0 0 6px}
+    .tl-item p{margin:0;color:var(--muted)}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);transition:transform .28s ease,box-shadow .28s ease;text-decoration:none;color:inherit}
+    .project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .project h5{margin:0 0 8px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Testimonials */
+    .testi{display:flex;gap:12px;align-items:center}
+    .avatar-sm{width:56px;height:56px;border-radius:10px;overflow:hidden}
+
+    /* Contact */
+    .contact{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+
+    /* Footer */
+    footer{margin-top:28px;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero,.grid-2{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      .avatar{width:100%;height:220px}
+    }
+    @media (max-width:640px){
+      .projects{grid-template-columns:1fr}
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    /* Micro animations */
+    .fade-up{opacity:0;transform:translateY(10px);animation:fadeUp .6s ease forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);font-size:13px}
+
+    /* Skill bars animation */
+    .skill-bar {
+      transition: width 1.5s ease-in-out;
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 via-slate-100 to-white text-gray-900">
-
-  <div class="max-w-6xl mx-auto px-6 py-10">
+<body>
+  <div class="container">
 
     <!-- HERO -->
-    <section class="grid md:grid-cols-2 gap-8 items-center mb-16">
-      <div class="bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
-        <h1 class="text-3xl font-bold mb-2">
-          Prashanth Sankar <span class="text-indigo-700">| Technical Support Specialist</span>
-        </h1>
-        <p class="text-slate-600 mb-4">
-          Transforming complex IT challenges into seamless, reliable solutions with 10 years of international expertise.
-        </p>
-        <div class="flex gap-4 flex-wrap">
-          <a href="#projects" class="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-semibold shadow-lg hover:scale-105 transition">View My Work</a>
-          <a href="mailto:prashanthche@gmail.com" class="px-6 py-3 rounded-full border-2 border-indigo-600 text-indigo-700 font-semibold hover:bg-indigo-50 transition">Contact Me</a>
-          <a href="Resume_Prashanth_Sankar_Updated.pdf" download class="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition">
-            <i class="fas fa-file-alt"></i> Download My Resume
-          </a>
+    <section class="hero">
+      <div class="hero-card fade-up">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px">
+          <div>
+            <div class="tag">IT Support Specialist • 10 Years International Experience</div>
+            <h1>Prashanth Sankar <span class="title">| Technical Support Specialist</span></h1>
+            <p class="tagline">Transforming complex IT challenges into seamless, reliable solutions with 10 years of international expertise.</p>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:12px;color:var(--muted)">Based in</div>
+            <div style="font-weight:700">Malta/Netherlands</div>
+          </div>
         </div>
-      </div>
-      <div class="rounded-2xl shadow-xl overflow-hidden border border-slate-200">
-        <img src="DSC_1081 (2).jpg" alt="Prashanth Sankar" class="w-full h-auto" />
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-4 text-indigo-700">About Me</h2>
-      <p>
-        I am an <strong>IT Infrastructure & Technical Support Specialist</strong> with over 10 years of international experience across Europe and Asia. Skilled in Windows, VMware, Active Directory, and IT monitoring tools, I bring creativity and corporate discipline to ensure uptime, resilience, and seamless user experiences.
-      </p>
-    </section>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">View My Work</a>
+            <a class="btn btn-ghost" href="mailto:prashanthche@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+            <a class="btn btn-ghost" href="Resume_Prashanth_Sankar_Updated.pdf" download><i class="fas fa-file-alt"></i> Download Resume</a>
+          </div>
+        </div>
 
-    <!-- SKILLS -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-6 text-indigo-700">Skills & Expertise</h2>
+        <div style="margin-top:16px;color:var(--muted);font-size:14px">Key strengths: Incident Management • System Monitoring • Windows/VMware • Active Directory • IT Monitoring Tools</div>
+      </div>
 
-      <div class="mb-4">
-        <p>Incident Management</p>
-        <div class="w-full h-3 bg-slate-200 rounded-lg overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-indigo-600 to-cyan-600" style="width: 90%;"></div>
-        </div>
-      </div>
-      <div class="mb-4">
-        <p>Monitoring (Kibana, Dynatrace, Splunk)</p>
-        <div class="w-full h-3 bg-slate-200 rounded-lg overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-indigo-600 to-cyan-600" style="width: 85%;"></div>
-        </div>
-      </div>
-      <div class="mb-4">
-        <p>Windows/Linux Administration</p>
-        <div class="w-full h-3 bg-slate-200 rounded-lg overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-indigo-600 to-cyan-600" style="width: 82%;"></div>
-        </div>
-      </div>
-      <div class="mb-4">
-        <p>SQL & Databases</p>
-        <div class="w-full h-3 bg-slate-200 rounded-lg overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-indigo-600 to-cyan-600" style="width: 78%;"></div>
-        </div>
-      </div>
-      <div class="mb-4">
-        <p>Collaboration & Tools (Jira, GitHub)</p>
-        <div class="w-full h-3 bg-slate-200 rounded-lg overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-indigo-600 to-cyan-600" style="width: 84%;"></div>
+      <div class="avatar fade-up" style="animation-delay:.12s">
+        <!-- Placeholder for image - replace with your actual image URL -->
+        <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--accent), var(--accent-2)); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; text-align:center; padding:20px;">
+          Prashanth Sankar<br>IT Support Specialist
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-6 text-indigo-700">Experience</h2>
-      <div class="border-l-4 border-indigo-600 pl-6 space-y-6">
-        <div>
-          <h4 class="font-semibold">2023 – 2025 | Technical Support Specialist | Malta</h4>
-          <p>Delivered end-to-end IT support for gaming platforms; maintained 99.5% uptime; reduced repeat incidents by 20%.</p>
+    <!-- About + Skills -->
+    <section class="grid-2">
+      <div class="card fade-up">
+        <h3>About Me</h3>
+        <p class="muted">I am an <strong>IT infrastructure & technical support specialist</strong> with over 10 years of international experience across Europe and Asia. Skilled in Windows, VMware, Active Directory, and IT monitoring tools, I bring creativity and corporate discipline to ensure uptime, resilience, and seamless user experiences.</p>
+
+        <div style="margin-top:16px">
+          <h4>Selected Highlights</h4>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Delivered end-to-end IT support for gaming platforms; maintained 99.5% uptime</li>
+            <li>Reduced repeat incidents by 20% through improved processes</li>
+            <li>Managed Active Directory, VMware, and backups; improved uptime to 99.9%</li>
+            <li>Optimised processes, improving ticket resolution speed by 30%</li>
+          </ul>
         </div>
-        <div>
-          <h4 class="font-semibold">2021 – 2023 | IT Engineer | Malta</h4>
-          <p>Managed Active Directory, VMware, and backups; restored operations in disaster recovery; improved uptime to 99.9%.</p>
+      </div>
+
+      <aside class="card fade-up" style="animation-delay:.08s">
+        <h4>Technical Expertise</h4>
+        <div class="skills" style="margin-top:8px">
+          <div class="skill"><strong>Incident Management</strong><div class="bar"><i class="skill-bar" style="width:90%"></i></div></div>
+          <div class="skill"><strong>Monitoring (Kibana, Dynatrace, Splunk)</strong><div class="bar"><i class="skill-bar" style="width:85%"></i></div></div>
+          <div class="skill"><strong>Windows/Linux Administration</strong><div class="bar"><i class="skill-bar" style="width:82%"></i></div></div>
+          <div class="skill"><strong>SQL & Databases</strong><div class="bar"><i class="skill-bar" style="width:78%"></i></div></div>
+          <div class="skill"><strong>Collaboration & Tools (Jira, GitHub)</strong><div class="bar"><i class="skill-bar" style="width:84%"></i></div></div>
         </div>
-        <div>
-          <h4 class="font-semibold">2015 – 2021 | IT Support Specialist | India & Malta</h4>
-          <p>Supported academic and corporate IT systems; maintained high availability for 1,500+ users; optimized processes improving ticket resolution speed by 30%.</p>
+
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag">Windows</span>
+          <span class="tag">VMware</span>
+          <span class="tag">Active Directory</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Dynatrace</span>
+          <span class="tag">Kibana</span>
+          <span class="tag">Splunk</span>
+          <span class="tag">SQL</span>
+          <span class="tag">GitHub</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="card fade-up">
+      <h3>Professional Experience</h3>
+      <div class="timeline" style="margin-top:12px">
+        <div class="tl-item">
+          <h4>2023–2025 | Technical Support Specialist | Malta</h4>
+          <p class="muted">Delivered end-to-end IT support for gaming platforms; maintained 99.5% uptime; reduced repeat incidents by 20%.</p>
+        </div>
+        <div class="tl-item">
+          <h4>2021–2023 | IT Engineer | Malta</h4>
+          <p class="muted">Managed Active Directory, VMware, and backups; restored operations in disaster recovery; improved uptime to 99.9%.</p>
+        </div>
+        <div class="tl-item">
+          <h4>2015–2021 | IT Support Specialist | India & Malta</h4>
+          <p class="muted">Supported academic and corporate IT systems; maintained high availability for 1,500+ users; optimised processes, improving ticket resolution speed by 30%.</p>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="mb-16">
-      <h2 class="text-2xl font-bold mb-6 text-indigo-700">Featured Projects</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition border border-slate-200">
-          <h5 class="font-semibold mb-2 text-indigo-700">Global IT Infrastructure Migration</h5>
-          <p class="text-slate-600">Migrated 300+ systems to a secure cloud environment with zero downtime.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition border border-slate-200">
-          <h5 class="font-semibold mb-2 text-indigo-700">Incident Automation & RCA</h5>
-          <p class="text-slate-600">Built automated workflows reducing mean time to resolution by 40%.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition border border-slate-200">
-          <h5 class="font-semibold mb-2 text-indigo-700">System Hardening & Compliance</h5>
-          <p class="text-slate-600">Implemented baseline security compliance reducing incidents by 28%.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="text-center mb-10">
-      <h2 class="text-2xl font-bold mb-4 text-indigo-700">Let’s Connect</h2>
-      <p class="mb-6">Looking for someone who blends corporate discipline with creative IT solutions? Let’s talk.</p>
-      <div class="flex justify-center gap-4 flex-wrap">
-        <a href="mailto:prashanthche@gmail.com" class="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-semibold shadow-lg hover:scale-105 transition">
-          <i class="fas fa-envelope"></i> Email
+    <!-- Projects -->
+    <section id="projects" style="margin-top:18px">
+      <h3 style="margin-bottom:12px">Featured Projects</h3>
+      <div class="projects">
+        <a href="#" class="project fade-up">
+          <h5>Global IT Infrastructure Migration</h5>
+          <p>Migrated 300+ systems to a secure cloud environment with zero downtime.</p>
+          <div style="margin-top:10px;font-size:13px;color:var(--muted)">Technologies: Cloud, Windows, Networking</div>
         </a>
-        <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-indigo-600 text-indigo-700 font-semibold hover:bg-indigo-50 transition">
-          <i class="fab fa-linkedin"></i> LinkedIn
+
+        <a href="#" class="project fade-up" style="animation-delay:.06s">
+          <h5>Incident Automation & RCA</h5>
+          <p>Built automated workflows reducing mean time to resolution by 40%.</p>
+          <div style="margin-top:10px;font-size:13px;color:var(--muted)">Tools: Jira, Automation Tools</div>
         </a>
-        <a href="https://github.com/prashanthche" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-indigo-600 text-indigo-700 font-semibold hover:bg-indigo-50 transition">
-          <i class="fab fa-github"></i> GitHub
+
+        <a href="#" class="project fade-up" style="animation-delay:.12s">
+          <h5>System Hardening & Compliance</h5>
+          <p>Implemented baseline security compliance, reducing incidents by 28%.</p>
+          <div style="margin-top:10px;font-size:13px;color:var(--muted)">Technologies: Security, Compliance</div>
         </a>
       </div>
     </section>
 
-    <footer class="text-center text-slate-500 text-sm">
-      © <strong>Prashanth Sankar</strong> — IT Infrastructure & Support Specialist | prashanthche@gmail.com
+    <!-- Testimonials -->
+    <section style="margin-top:18px">
+      <h3>Testimonials</h3>
+      <div class="card" style="margin-top:12px">
+        <div class="testi">
+          <div class="avatar-sm">
+            <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--accent), var(--accent-2)); display:flex; align-items:center; justify-content:center; color:white;">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div>
+            <strong>Team Lead, Previous Company</strong>
+            <p class="muted">"Prashanth consistently delivers results under pressure. His troubleshooting skills and ability to collaborate across teams are exceptional. He played a key role in maintaining our 99.9% uptime."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section style="margin-top:18px" class="card fade-up">
+      <h3>Let's Connect</h3>
+      <p class="muted">Looking for someone who blends corporate discipline with creative IT solutions? Let's talk.</p>
+      <div class="contact" style="margin-top:12px">
+        <a class="btn btn-primary" href="mailto:prashanthche@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/prashanthche" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a class="btn btn-ghost" href="Resume_Prashanth_Sankar_Updated.pdf" download><i class="fas fa-file-alt"></i> Resume</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <strong>Prashanth Sankar</strong> — IT Infrastructure & Support Specialist | prashanthche@gmail.com</p>
     </footer>
 
   </div>
 
+  <script>
+    // Reveal animations on scroll
+    const els = document.querySelectorAll('.fade-up');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if(e.isIntersecting) {
+          e.target.style.animationPlayState = 'running';
+          e.target.classList.add('visible');
+        }
+      });
+    },{threshold:0.08});
+    
+    els.forEach((el,i)=>{
+      el.style.animationDelay = (i*60)+'ms';
+      el.style.animationPlayState = 'paused';
+      obs.observe(el);
+    });
+
+    // Animate skill bars when they come into view
+    const skillBars = document.querySelectorAll('.skill-bar');
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skillBar = entry.target;
+          const width = skillBar.style.width;
+          skillBar.style.width = '0';
+          setTimeout(() => {
+            skillBar.style.width = width;
+          }, 300);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    skillBars.forEach(bar => {
+      skillObserver.observe(bar);
+    });
+
+    // Simple contact click tracking
+    document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => {
+      console.log('Email link clicked');
+    }));
+  </script>
 </body>
 </html>
