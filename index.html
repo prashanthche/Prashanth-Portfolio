@@ -239,10 +239,12 @@
             overflow: hidden;
         }
             #profile-image {
-            margin-top: -0.5cm; /* moves the image down inside its container */
-            object-fit: cover; /* ensures it fills the container nicely */
-        }
-
+    width: 100%;         /* fills the box width */
+    height: 100%;        /* fills the box height */
+    object-fit: cover;   /* keeps the aspect ratio, crops overflow */
+    position: relative;
+    top: -0.5cm;         /* moves image up inside the box */
+}
         .hero::before {
             content: '';
             position: absolute;
@@ -295,7 +297,7 @@
 }
 
         .hero-image img {
-    width: 100%;
+    width: 300%;
     height: 400px;              /* fixed height box */
     max-width: 400px;           /* fixed max width */
     object-fit: cover;          /* crop to fit nicely */
