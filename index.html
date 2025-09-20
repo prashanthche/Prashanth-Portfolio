@@ -112,7 +112,7 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 极速加速器);
         }
 
         .btn:hover {
@@ -406,6 +406,67 @@
             color: var(--accent-green);
         }
 
+        /* Grafana Style Chart */
+        .grafana-chart {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chart-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Server Status Widget */
+        .server-status {
+            display: flex;
+            align-items: center;
+            margin-top: var(--spacing-md);
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .status-indicator.online {
+            background-color: var(--accent-green);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .status-indicator.offline {
+            background-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .server-list {
+            margin-top: var(--spacing-md);
+        }
+
+        .server-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .server-name {
+            display: flex;
+            align-items: center;
+        }
+
         /* About Section */
         .about-content {
             display: grid;
@@ -486,7 +547,7 @@
         /* Experience Section */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -860,7 +921,7 @@
 
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+                box-shadow: 0 极速加速器 0 0 rgba(16, 185, 129, 0.7);
             }
             70% {
                 box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
@@ -908,14 +969,14 @@
                         <p><i class="fas fa-phone"></i> +919940627357 | <i class="fas fa-envelope"></i> prashanthche@gmail.com | <i class="fas fa-map-marker-alt"></i> India</p>
                         <div class="social-links" style="justify-content: flex-start; margin-top: var(--spacing-sm);">
                             <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link" style="width: 40px; height: 40px;"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://github.com/prashanthche" class="social-link" style="width: 40px; height: 40px;"><i class="fab fa-github"></i></a>
+                            <a href="极速加速器" class="social-link" style="width: 40px; height: 40px;"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="hero-image fade-in delay-1">
-                    <img id="profile-image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Prashanth Sankar - IT Support Specialist">
+                    <img id="profile-image" src="DSC_1081 (2).jpgauto=format&fit=crop&w=774&q=80" alt="Prashanth Sankar - IT Support Specialist">
                 </div>
-            </div>
+            </极速加速器>
         </div>
     </section>
 
@@ -932,10 +993,13 @@
                     <p>Current server availability and performance metrics</p>
                     <div class="metric">99.95% <span class="metric-change">+2.5%</span></div>
                     <div class="chart-container">
-                        <canvas id="uptimeChart"></canvas>
+                        <div class="grafana-chart">
+                            <div class="chart-grid"></div>
+                            <canvas id="uptimeChart"></canvas>
+                        </div>
                     </div>
-                    <div class="alert-indicator safe">
-                        <i class="fas fa-check-circle"></i>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
                         <span>All systems operational</span>
                     </div>
                 </div>
@@ -944,10 +1008,13 @@
                     <p>Data protection and recovery metrics</p>
                     <div class="metric">98.7% <span class="metric-change">+15%</span></div>
                     <div class="chart-container">
-                        <canvas id="backupChart"></canvas>
+                        <div class="grafana-chart">
+                            <div class="chart-grid"></div>
+                            <canvas id="backupChart"></canvas>
+                        </div>
                     </div>
-                    <div class="alert-indicator safe">
-                        <i class="fas fa-check-circle"></i>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
                         <span>Last backup: 2 hours ago</span>
                     </div>
                 </div>
@@ -956,11 +1023,33 @@
                     <p>Real-time performance and health metrics</p>
                     <div class="metric">100% <span class="metric-change">+5%</span></div>
                     <div class="chart-container">
-                        <canvas id="monitoringChart"></canvas>
+                        <div class="grafana-chart">
+                            <div class="chart-grid"></div>
+                            <canvas id="monitoringChart"></canvas>
+                        </div>
                     </div>
-                    <div class="alert-indicator">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <span>2 minor alerts - Review recommended</span>
+                    <div class="server-list">
+                        <div class="server-item">
+                            <div class="server-name">
+                                <div class="status-indicator online"></div>
+                                <span>Web Server</span>
+                            </div>
+                            <span>99.9% uptime</span>
+                        </div>
+                        <div class="server-item">
+                            <div class="server-name">
+                                <div class="status-indicator online"></div>
+                                <span>Database</span>
+                            </div>
+                            <span>99.95% uptime</span>
+                        </div>
+                        <div class="server-item">
+                            <div class="server-name">
+                                <div class="status-indicator online"></div>
+                                <span>API Services</span>
+                            </div>
+                            <span>100% uptime</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -989,7 +1078,7 @@
                         </div>
                         <div class="stat">
                             <div class="stat-number">30%</div>
-                            <div class="stat-text">Downtime Reduced</div>
+                            <div class="stat-text">Downtime Reduced</极速加速器>
                         </div>
                     </div>
                 </div>
@@ -1021,7 +1110,7 @@
                     <h3><i class="fas fa-server"></i> System Administration</h3>
                     <div class="skill-list">
                         <div class="skill-item"><i class="fab fa-windows"></i> Windows Server</div>
-                        <div class="skill-item"><i class="fas fa-network-wired"></i> Active Directory</div>
+                        <div class="skill-item"><i class="fas fa-network-wired"></极速加速器> Active Directory</div>
                         <div class="skill-item"><i class="fas fa-database"></i> SQL Server</div>
                         <div class="skill-item"><i class="fas fa-cloud"></i> Azure AD</div>
                         <div class="skill-item"><i class="fas fa-sync"></i> PowerShell</div>
@@ -1034,7 +1123,7 @@
                         <div class="skill-item"><i class="fas fa-search"></i> Kibana</div>
                         <div class="skill-item"><i class="fas fa-chart-bar"></i> Splunk</div>
                         <div class="skill-item"><i class="fas fa-tachometer-alt"></i> Dynatrace</div>
-                        <div class="skill-item"><i class="fas fa-bug"></i> Root Cause Analysis</div>
+                        <div class="skill-item"><i极速加速器 class="fas fa-bug"></i> Root Cause Analysis</div>
                         <div class="skill-item"><i class="fas fa-desktop"></i> Performance Monitoring</div>
                         <div class="skill-item"><i class="fas fa-bell"></i> Alert Management</div>
                     </div>
@@ -1045,8 +1134,8 @@
                         <div class="skill-item"><i class="fas fa-terminal"></i> Bash Scripting</div>
                         <div class="skill-item"><i class="fab fa-python"></i> Python</div>
                         <div class="skill-item"><i class="fas fa-code"></i> HTML/CSS</div>
-                        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-                        <div class="skill-item"><i class="fas fa-cube"></i> Automation</div>
+                        <div class="skill极速加速器-item"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="极速加速器skill-item"><i class="fas fa-cube"></i> Automation</div>
                         <div class="skill-item"><i class="fas fa-database"></i> SQL Querying</div>
                     </div>
                 </div>
@@ -1080,7 +1169,7 @@
                         <p>Delivered end-to-end IT support for gaming platforms, resolving 95% of escalated tickets within SLA and maintaining uptime above 99.5%.</p>
                         <ul class="achievement-list">
                             <li>Conducted root cause analysis (RCA) using Kibana and Dynatrace, reducing repeat incidents by 20%</li>
-                            <li>Proficient in Java and JSON debugging, SQL querying, and Linux scripting</li>
+                            <li>Proficient in Java and JSON debugging, SQL querying, and Linux scripting</极速加速器>
                             <li>Collaborated with Tier 3 teams to resolve complex problems</li>
                             <li>Created knowledge bases and technical documentation</li>
                         </ul>
@@ -1088,7 +1177,7 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content card">
-                        <div class="timeline-date">Sep 2021 - May 2023</div>
+                        <div class极速加速器="timeline-date">Sep 2021 - May 2023</div>
                         <div class="timeline-role">IT Engineer</div>
                         <div class="timeline-company">Prosecure Limited | Marsa</div>
                         <p>Managed Microsoft Active Directory, VMWare virtualization, and Veeam backups for enterprise IT operations.</p>
@@ -1114,6 +1203,44 @@
                         </ul>
                     </div>
                 </div>
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Sep 2016 – Jun 2019</div>
+                        <div class="timeline-role">IT Support Specialist</div>
+                        <div class="timeline-company">JKA Solutions Pvt Ltd | Hyderabad</div>
+                        <p>Provided end-user support for hardware, software, and network issues, ensuring minimal downtime.</p>
+                        <ul class="achievement-list">
+                            <li>Installed, configured, and maintained systems, peripherals, and network devices</li>
+                            <li>Supported testing, documentation, and quality checks</li>
+                            <li>Ensured smooth operations through process and inventory support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Aug 2015 – Aug 2016</div>
+                        <div class="timeline-role">Technical Assistant</div>
+                        <div class="timeline-company">Giesecke & Devrient India Pvt Ltd | Chennai</div>
+                        <p>Provided technical support in operations, maintenance, and troubleshooting of systems and equipment.</p>
+                        <ul class="achievement-list">
+                            <li>Assisted engineers with testing, documentation, and quality checks</li>
+                            <li>Ensured compliance with company standards and secure workflows</li>
+                            <li>Supported processes and coordinated inventory for smooth operations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Dec 2014 – Aug 2015</div>
+                        <div class="timeline-role">Technical Research Assistant</div>
+                        <div class="timeline-company">Zebronics India Private Limited | Chennai</div>
+                        <p>Assembled, configured, and optimized computer hardware systems to support experimental setups.</p>
+                        <ul class="achievement-list">
+                            <li>Conducted hardware diagnostics, performance benchmarking, and component-level troubleshooting</li>
+                            <li>Supported research and development activities</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1135,7 +1262,7 @@
                 </div>
 
                 <div class="testimonial-card card" style="margin-top: var(--spacing-lg);">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Team Lead" class="testimonial-avatar">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wx极速加速器A3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Team Lead" class="testimonial-avatar">
                     <div class="testimonial-text">
                         Prashanth was an invaluable member of our technical support team. His expertise in incident management and system monitoring significantly improved our response times and reduced downtime. His ability to troubleshoot complex issues and collaborate across teams made him a go-to resource for challenging technical problems.
                     </div>
@@ -1193,7 +1320,7 @@
                         <div>
                             <h3>Location</h3>
                             <p>India</p>
-                        </div>
+                        </极速加速器>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
@@ -1220,7 +1347,7 @@
                         <label for="message">Message</label>
                         <textarea id="message" class="form-control" placeholder="Your Message"></textarea>
                     </div>
-                    <button class="btn">Send Message</button>
+                    <button class="btn" onclick="sendEmail()">Send Message</button>
                 </div>
             </div>
         </div>
@@ -1243,7 +1370,7 @@
         // Simple JavaScript for mobile navigation toggle
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
+            const navLinks = document.querySelector('.nav极速加速器-links');
             
             hamburger.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
@@ -1295,19 +1422,23 @@
                 });
             }
 
-            // Create charts
+            // Create charts with Grafana style
             const uptimeCtx = document.getElementById('uptimeChart').getContext('2d');
             const uptimeChart = new Chart(uptimeCtx, {
                 type: 'line',
                 data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '23:59'],
                     datasets: [{
                         label: 'Uptime %',
-                        data: [97.2, 98.5, 99.1, 99.4, 99.7, 99.95],
+                        data: [99.2, 99.5, 99.1, 99.4, 99.7, 99.95, 99.92],
                         borderColor: '#3b82f6',
                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         tension: 0.4,
-                        fill: true
+                        fill: true,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointRadius: 3,
+                        pointHoverRadius: 5
                     }]
                 },
                 options: {
@@ -1321,15 +1452,21 @@
                     scales: {
                         y: {
                             beginAtZero: false,
-                            min: 95,
+                            min: 98,
                             max: 100,
                             grid: {
                                 color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
                             }
                         },
                         x: {
                             grid: {
-                                display: false
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
                             }
                         }
                     }
@@ -1338,14 +1475,20 @@
 
             const backupCtx = document.getElementById('backupChart').getContext('2d');
             const backupChart = new Chart(backupCtx, {
-                type: 'bar',
+                type: 'line',
                 data: {
-                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                     datasets: [{
                         label: 'Backup Efficiency',
-                        data: [83, 89, 92, 98.7],
-                        backgroundColor: 'rgba(16, 185, 129, 0.8)',
-                        borderRadius: 5
+                        data: [83, 89, 92, 98.7, 97.5, 96.8, 98.2],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointRadius: 3,
+                        pointHoverRadius: 5
                     }]
                 },
                 options: {
@@ -1363,11 +1506,17 @@
                             max: 100,
                             grid: {
                                 color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
                             }
                         },
                         x: {
                             grid: {
-                                display: false
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
                             }
                         }
                     }
@@ -1376,26 +1525,59 @@
 
             const monitoringCtx = document.getElementById('monitoringChart').getContext('2d');
             const monitoringChart = new Chart(monitoringCtx, {
-                type: 'doughnut',
+                type: 'line',
                 data: {
-                    labels: ['Operational', 'Maintenance', 'Issues'],
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '23:59'],
                     datasets: [{
-                        data: [92, 5, 3],
-                        backgroundColor: [
-                            'rgba(16, 185, 129, 0.8)',
-                            'rgba(245, 158, 11, 0.8)',
-                            'rgba(239, 68, 68, 0.8)'
-                        ],
-                        borderWidth: 0
+                        label: 'CPU Usage',
+                        data: [23, 45, 32, 28, 65, 52, 38],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointRadius: 3,
+                        pointHoverRadius: 5
+                    }, {
+                        label: 'Memory Usage',
+                        data: [45, 52, 38, 41, 65, 58, 47],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointRadius: 3,
+                        pointHoverRadius: 5
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: '70%',
                     plugins: {
                         legend: {
                             display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
                         }
                     }
                 }
@@ -1417,9 +1599,18 @@
                             const backupData = backupChart.data.datasets[0].data;
                             backupData[3] = Math.min(100, backupData[3] + (Math.random() * 0.5 - 0.25));
                             
+                            // Update monitoring chart
+                            const monitoringData1 = monitoringChart.data.datasets[0].data;
+                            const monitoringData2 = monitoringChart.data.datasets[1].data;
+                            monitoringData1.push(Math.floor(Math.random() * 70) + 10);
+                            monitoringData1.shift();
+                            monitoringData2.push(Math.floor(Math.random() * 70) + 10);
+                            monitoringData2.shift();
+                            
                             // Update charts
                             uptimeChart.update();
                             backupChart.update();
+                            monitoringChart.update();
                         }, 3000);
                         
                         // Stop observing after animation starts
@@ -1432,6 +1623,21 @@
                 chartObserver.observe(container);
             });
         });
+
+        // Function to send email
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && subject && message) {
+                const mailtoLink = `mailto:prashanthche@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+                window.location.href = mailtoLink;
+            } else {
+                alert('Please fill in all fields before sending.');
+            }
+        }
     </script>
 </body>
 </html>
