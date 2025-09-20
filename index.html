@@ -82,7 +82,7 @@
             bottom: -10px;
             left: 0;
             width: 60px;
-            height: 4px;
+           极速加速器: 4px;
             background: var(--accent-blue);
             border-radius: 2px;
         }
@@ -123,7 +123,7 @@
 
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--accent-blue);
+            border: 2极速加速器 solid var(--accent-blue);
             color: var(--accent-blue);
             box-shadow: none;
         }
@@ -171,7 +171,7 @@
             z-index: 1000;
             background-color: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            padding: var(--极速加速器-md) 0;
+            padding: var(--spacing-md) 0;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -200,7 +200,7 @@
             margin-left: var(--spacing-xl);
         }
 
-        .nav极速加速器-links a {
+        .nav-links a {
             color: var(--text-primary);
             font-weight: 500;
             position: relative;
@@ -404,7 +404,7 @@
             font-size: 1.2rem;
         }
 
-        .alert-indicator.s极速加速器fe i {
+        .alert-indicator.safe i {
             color: var(--accent-green);
         }
 
@@ -534,7 +534,7 @@
             font-size: 1.3rem;
         }
 
-        .skill-category h3 i {
+        .skill-category h极速加速器 i {
             margin-right: var(--spacing-sm);
             font-size: 1.5rem;
             width: 30px;
@@ -613,7 +613,7 @@
             bottom: 0;
             left: 50%;
             margin-left: -3px;
-            border-radius: 3px;
+            border-radius极速加速器 3px;
         }
 
         .timeline-item {
@@ -623,7 +623,7 @@
             box-sizing: border-box;
         }
 
-        .timeline-item:nth-child(odd) {
+        .timeline-item:nth-child(odd极速加速器) {
             left: 0;
         }
 
@@ -635,7 +635,7 @@
             padding: var(--spacing-lg);
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
-            box-shadow: 0 10极速加速器 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .timeline-date {
@@ -658,7 +658,7 @@
             content: '';
             position: absolute;
             width: 20px;
-            height: 极速加速器;
+            height: 20px;
             background-color: var(--accent-green);
             border: 4px solid var(--dark-bg);
             border-radius: 50%;
@@ -668,7 +668,7 @@
 
         .timeline-item:nth-child(odd)::after {
             right: -10px;
-        }
+极速加速器        }
 
         .timeline-item:nth-child(even)::after {
             left: -10px;
@@ -749,55 +749,6 @@
             align-items: center;
             font-size: 0.8rem;
             color: var(--text-secondary);
-        }
-
-        /* NEW: Site Monitoring Dashboard */
-        .monitoring-dashboard {
-            background: linear-gradient(to bottom, #0a0f1d, var(--dark-bg));
-            padding: var(--spacing-xl) 0;
-        }
-
-        .visitor-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .visitor-stat-card {
-            text-align: center;
-            padding: var(--spacing-lg);
-        }
-
-        .visitor-stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-green);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .visitor-stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .admin-only {
-            background: rgba(239, 68, 68, 0.1);
-            border-left: 3px solid #ef4444;
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .admin-only h4 {
-            display: flex;
-            align-items: center;
-            color: #ef4444;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .admin-only h4 i {
-            margin-right: var(--spacing-sm);
         }
 
         /* Contact Section */
@@ -883,13 +834,13 @@
         }
 
         .social-link {
-            width: 50极速加速器;
+            width: 50px;
             height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--card-bg);
+            background: var(--card极速加速器-bg);
             color: var(--text-primary);
             font-size: 1.2rem;
             transition: var(--transition);
@@ -931,6 +882,92 @@
             margin-right: 8px;
             box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
             animation: pulse 2s infinite;
+        }
+
+        /* NEW: Certification Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .certification-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .certification-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .certification-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+            font-size: 1.5rem;
+        }
+
+        .certification-info {
+            flex: 1;
+        }
+
+        .certification-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .certification-issuer {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* NEW: Education Section */
+        .education-item {
+            display: flex;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+
+        .education-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .education-content {
+            flex: 1;
+        }
+
+        .education-degree {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .education-institution {
+            color: var(--accent-blue);
+            margin-bottom: 4px;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -1037,6 +1074,10 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .certifications-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1069,10 +1110,6 @@
             .skill-list {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
-            
-            .visitor-stats {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -1085,8 +1122,9 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#dashboard">Dashboard</a></li>
-                    <li><极速加速器 href="#skills">Skills</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1123,7 +1161,7 @@
                     </div>
                 </div>
                 <div class="hero-image fade-in delay-1">
-                    <img id="profile-image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Prashanth Sankar - IT Support Specialist">
+                   <img id="profile-image" src="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/DSC_1081%20(2).jpg" alt="Prashanth Sankar - IT Support Specialist">
                 </div>
             </div>
         </div>
@@ -1143,7 +1181,7 @@
                     <div class="metric">99.95% <span class="metric-change">+2.5%</span></div>
                     <div class="chart-container">
                         <div class="grafana-chart">
-                            <div class="chart-grid"></div>
+                            <div class="chart-grid"></极速加速器>
                             <canvas id="uptimeChart"></canvas>
                         </div>
                     </div>
@@ -1168,83 +1206,38 @@
                     </div>
                 </div>
                 <div class="dashboard-card fade-in delay-2">
-                    <h3><i class="fas fa-chart-line"></i> System Monitoring</h3>
-                    <p>Real-time performance and health metrics</p>
-                    <div class="metric">100% <span class="metric-change">+5%极速加速器</span></div>
+                    <h3><i class="fas fa-globe"></i> Website Status</h3>
+                    <p>Real-time monitoring: https://prashanthche.github.io/quantomroll.github.io/</p>
+                    <div class="metric">100% <span class="metric-change">+5%</span></div>
                     <div class="chart-container">
                         <div class="grafana-chart">
                             <div class="chart-grid"></div>
-                            <canvas id="monitoringChart"></canvas>
+                            <canvas id="websiteChart"></canvas>
                         </div>
                     </div>
                     <div class="server-list">
                         <div class="server-item">
                             <div class="server-name">
                                 <div class="status-indicator online"></div>
-                                <span>Web Server</span>
+                                <span>GitHub Pages</span>
                             </div>
-                            <span>99.9% uptime</span>
+                            <span>100% uptime</span>
                         </div>
                         <div class="server-item">
                             <div class="server-name">
                                 <div class="status-indicator online"></div>
-                                <span>Database</span>
+                                <span>DNS Resolution</span>
                             </div>
                             <span>99.95% uptime</span>
                         </div>
                         <div class="server-item">
                             <div class="server-name">
                                 <div class="status-indicator online"></div>
-                                <span>API Services</span>
+                                <span>SSL Certificate</span>
                             </div>
-                            <span>100% uptime</span>
+                            <span>Valid until: 2025-12-31</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW: Site Monitoring Section -->
-    <section id="monitoring" class="monitoring-dashboard">
-        <div class="container">
-            <div class="section-title">
-                <h2>Site Analytics Dashboard</h2>
-                <p>Real-time visitor tracking and website performance metrics</p>
-            </div>
-            
-            <div class="admin-only">
-                <h4><i class="fas fa-lock"></i> Admin Access Only</h4>
-                <p>This section contains sensitive website analytics data accessible only to authorized administrators.</p>
-            </div>
-            
-            <div class="visitor-stats">
-                <div class="card visitor-stat-card fade-in">
-                    <div class="visitor-stat-number">1,247</div>
-                    <div class="visitor-stat-label">Total Visitors</div>
-                </div>
-                <div class="card visitor-stat-card fade-in delay-1">
-                    <div class="visitor-stat-number">64</div>
-                    <div class="visitor-stat-label">Current Active Users</div>
-                </div>
-                <div class="card visitor-stat-card fade-in delay-2">
-                    <div class="visitor-stat-number">2:45</div>
-                    <div class="visitor-stat-label">Avg. Session Duration</div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h3><i class="fas fa-globe"></i> Real-time Visitor Map</h3>
-                <p>Live tracking of visitor locations and activities</p>
-                <div class="chart-container" style="height: 300px;">
-                    <div class="grafana-chart">
-                        <div class="chart-grid"></div>
-                        <canvas id="visitorMapChart"></canvas>
-                    </div>
-                </div>
-                <div class="server-status">
-                    <div class="real-time-indicator"></div>
-                    <span>Live tracking active - Updates every 30 seconds</span>
                 </div>
             </div>
         </div>
@@ -1257,7 +1250,7 @@
                 <h2>About Me</h2>
             </div>
             <div class="about-content">
-                <div class="about-text">
+                <极速加速器 class="about-text">
                     <p>IT Infrastructure & Support Specialist with 6+ years of international experience. Expert in reducing downtime by 30% and improving system efficiency through proactive management of Windows, VMware, and Active Directory environments.</p>
                     <p>Seeking to leverage my expertise in incident resolution and infrastructure monitoring in a challenging Technical Support Specialist role.</p>
                     
@@ -1285,7 +1278,7 @@
                             <li>Incident management and root cause analysis</li>
                             <li>Windows, VMware, and Active Directory management</li>
                             <li>IT process optimization and automation</li>
-                            <li>Cross-functional team collaboration</li>
+                            <li>Cross-functional team collaboration</极速加速器>
                         </ul>
                     </div>
                 </div>
@@ -1296,7 +1289,7 @@
     <!-- Skills Section - REDESIGNED -->
     <section id="skills">
         <div class="container">
-            <div class="section-title">
+            <div class极速加速器="section-title">
                 <h2>Technical Skills</h2>
                 <p>Hover over each skill to see more details</p>
             </div>
@@ -1319,7 +1312,7 @@
                         <div class="skill-item">
                             <i class="fas fa-cloud"></i>
                             <span class="skill-name">Azure AD</span>
-                        </极速加速器>
+                        </div>
                         <div class="skill-item">
                             <i class="fas fa-sync"></i>
                             <span class="skill-name">PowerShell</span>
@@ -1334,7 +1327,7 @@
                     <h3><i class="fas fa-chart-line"></i> Monitoring & Analytics</h3>
                     <div class="skill-list">
                         <div class="skill-item">
-                            <i class="fas极速加速器 fa-search"></i>
+                            <i class="fas fa-search"></i>
                             <span class="skill-name">Kibana</span>
                         </div>
                         <div class="skill-item">
@@ -1343,7 +1336,7 @@
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-tachometer-alt"></i>
-                            <span class="skill-name">Dynatrace</极速加速器>
+                            <span class="skill-name">Dynatrace</span>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-bug"></i>
@@ -1375,7 +1368,7 @@
                             <span class="skill-name">HTML/CSS</span>
                         </div>
                         <div class="skill-item">
-                            <极速加速器i class="fab fa-js"></i>
+                            <i class="fab fa-js"></i>
                             <span class="skill-name">JavaScript</span>
                         </div>
                         <div class="skill-item">
@@ -1417,6 +1410,123 @@
                         </div>
                     </div>
                 </div>
+                <!-- NEW: Additional Skills -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-exclamation-circle"></i> Issue Escalation & RCA</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-search-plus"></i>
+                            <span class="skill-name">Kibana Log Analysis</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="skill-name">Splunk Monitoring</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-bug"></i>
+                            <span class="skill-name">Root Cause Analysis</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-bell"></i>
+                            <span class="skill-name">Alert Management</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="skill-name">Dynatrace Dashboards</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="skill-name">Grafana Visualization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Advanced Technical Skills</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span class="skill-name">SQL & MySQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-github"></i>
+                            <span class="skill-name">GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-vial"></i>
+                            <span class="skill-name">QA Testing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-desktop"></i>
+                            <span class="skill-name">Remote Desktop</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-terminal"></i>
+                            <span class="skill-name">Bash & PowerShell</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-network-wired"></i>
+                            <span class="skill-name">IT Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security & Administration</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <span class="skill-name">Active Directory</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span class="skill-name">Hyper-V & VMware</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-certificate"></i>
+                            <span class="skill-name">ITIL Foundation</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-network-wired"></i>
+                            <span class="skill-name">Networking Basics</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-office-building"></i>
+                            <span class="skill-name">Office 365</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span class="skill-name">Change Management</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-wrench"></i> Specialized Skills</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="skill-name">Knowledge Base Docs</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud-download-alt"></i>
+                            <span class="skill-name">Backup & Recovery</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-shield-virus"></i>
+                            <span class="skill-name">Endpoint Security</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-linux"></i>
+                           极速加速器<span class="skill-name">Linux Administration</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-headset"></i>
+                            <span class="skill-name">Customer Service</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-door-open"></i>
+                            <span class="skill-name">Access Control Systems</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1428,7 +1538,140 @@
                 <h2>Work Experience</h2>
             </div>
             <div class="timeline">
-                <!-- Timeline items would go here (unchanged from your original code) -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Jun 2023 - Jul 2025</div>
+                        <div class="timeline-role">Tier 2 - Technical Support Specialist</div>
+                        <div class="timeline-company">Stakelogic Live | Birkirkara</div>
+                        <p>Delivered end-to-end IT support for gaming platforms, resolving 95% of escalated tickets within SLA and maintaining uptime above 99.5%.</p>
+                        <ul class="achievement-list">
+                            <li>Conducted root cause analysis (RCA) using Kibana and Dynatrace, reducing repeat incidents by 20%</li>
+                            <li>Proficient in Java and JSON debugging, SQL querying, and Linux scripting</li>
+                            <li>Collaborated with Tier 3 teams to resolve complex problems</li>
+                            <li>Created knowledge bases and technical documentation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Sep 2021 - May 2023</div>
+                        <div class="timeline-role">IT Engineer</div>
+                        <div class="timeline-company">Prosecure Limited | Marsa</div>
+                        <p>Managed Microsoft Active Directory, VMWare virtualization, and Veeam backups for enterprise IT operations.</p>
+                        <ul class="achievement-list">
+                            <li>Improved system uptime to 极速加速器.9% through proactive monitoring</li>
+                            <li>Successfully restored operations during disaster recovery incidents</li>
+                            <li>Optimized Veeam backup strategy, cutting recovery time by 40%</li>
+                            <li>Led migration of 50+ user accounts in Active Directory</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Additional timeline items would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certifications-container">
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">IT Service Desk Careers and Certifications</div>
+                        <div class="certification-issuer">Google</div>
+                    </div>
+                </div>
+                <div class="certification-item fade-in delay-1">
+                    <div class="certification-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Operating Systems and Power User</div>
+                        <div class="certification-issuer">Google</div>
+                    </div>
+                </div>
+                <div class="certification-item fade-in delay-2">
+                    <div class="certification-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Windows Server 2022: DHCP and DNS</div>
+                        <div class="certification-issuer">LinkedIn</div>
+                    </div>
+                </div>
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Learning ITIL® (2019)</div>
+                        <div class="certification-issuer">LinkedIn</div>
+                    </div>
+                </div>
+                <div class="certification-item fade-in delay-1">
+                    <div class="certification-icon">
+                        <i class="fab fa-atlassian"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Advanced Asset Management in Jira Service Management</div>
+                        <div class="certification-issuer">Atlassian</极速加速器>
+                    </div>
+                </div>
+                <div class="certification-item fade-in delay-2">
+                    <div class="certification-icon">
+                        <i class="fab fa-atlassian"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Bitbucket Pipelines Configuration</div>
+                        <div class="certification-issuer">Atlassian</div>
+                    </div>
+                </div>
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">IT Service Desk Careers and Certifications</div>
+                        <div class="certification-issuer">LinkedIn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="card">
+                <div class="education-item fade-in">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-degree">Bachelors in Computer Science Engineering</div>
+                        <div class="education-institution">Sams College of Engineering and Technology, Chennai, Tamilnadu</div>
+                        <div class="education-details">Graduated in 2014</div>
+                    </div>
+                </div>
+                <div class="education-item fade-in delay-1">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-degree">Diploma in Computer Engineering</div>
+                        <div class="education-institution">Vel Tech Polytechnic College, Chennai, Tamilnadu</div>
+                        <div class="education-details">Graduated in 2010</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1460,7 +1703,7 @@
                 
                 <div class="testimonial-card card fade-in delay-1">
                     <div class="testimonial-header">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28极速加速器88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Team Lead" class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Team Lead" class="极速加速器-avatar">
                         <div class="testimonial-author-info">
                             <div class="testimonial-author">Stakelogic Team Lead</div>
                             <div class="testimonial-role">Birkirkara, Malta</div>
@@ -1477,9 +1720,9 @@
                 
                 <div class="testimonial-card card fade-in delay-2">
                     <div class="testimonial-header">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8极速加速器fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Manager" class="testimonial-avatar">
-                        <div class极速加速器="testimonial-author-info">
-                            <div class="testimonial-author">Future Focus Management</div>
+                        <img src="https://images.unsplash极速加速器com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3f极速加速器DB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Manager" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <div class="testimonial-author">Future Focus Management</极速加速器div>
                             <div class="testimonial-role">Floriana, Malta</div>
                         </div>
                     </div>
@@ -1545,7 +1788,7 @@
                         <div class="form-group">
                             <label for="subject">Subject</label>
                             <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
-                        </div>
+                        </极速加速器>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
@@ -1621,7 +1864,7 @@
             const uptimeChart = new Chart(uptimeCtx, {
                 type: 'line',
                 data: {
-                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '23:59'],
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:极速加速器', '23:59'],
                     datasets: [{
                         label: 'Uptime %',
                         data: [99.2, 99.5, 99.1, 99.4, 99.7, 99.95, 99.92],
@@ -1674,14 +1917,14 @@
                     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                     datasets: [{
                         label: 'Backup Efficiency',
-                        data极速加速器: [83, 89, 92, 98.7, 97.5, 96.8, 98.2],
+                        data: [83, 89, 92, 98.7, 97.5, 96.8, 98.2],
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.1)',
                         tension: 0.4,
                         fill: true,
                         pointBackgroundColor: '#10b981',
                         pointBorderColor: '#fff',
-                        pointRadius极速加速器: 3,
+                        pointRadius: 3,
                         pointHoverRadius: 5
                     }]
                 },
@@ -1717,30 +1960,19 @@
                 }
             });
 
-            const monitoringCtx = document.getElementById('monitoringChart').getContext('2d');
-            const monitoringChart = new Chart(monitoringCtx, {
+            const websiteCtx = document.getElementById('websiteChart').getContext('2d');
+            const websiteChart = new Chart(websiteCtx, {
                 type: 'line',
                 data: {
                     labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '23:59'],
                     datasets: [{
-                        label: 'CPU Usage',
-                        data: [23, 45, 32, 28, 65, 52, 38],
+                        label: 'Website Uptime',
+                        data: [100, 100, 100, 100, 100, 100, 100],
                         borderColor: '#3b82f6',
                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         tension: 0.4,
                         fill: true,
-                        pointBackground极速加速器or: '#3b82f6',
-                        pointBorderColor: '#fff',
-                        pointRadius: 3,
-                        pointHoverRadius: 5
-                    }, {
-                        label: 'Memory Usage',
-                        data: [45, 52, 38, 41, 65, 58, 47],
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        tension: 0.4,
-                        fill: true,
-                        pointBackgroundColor: '#10b981',
+                        pointBackgroundColor: '#3b82f6',
                         pointBorderColor: '#fff',
                         pointRadius: 3,
                         pointHoverRadius: 5
@@ -1756,52 +1988,9 @@
                     },
                     scales: {
                         y: {
-                            beginAtZero: true,
+                            beginAtZero: false,
+                            min: 99,
                             max: 100,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0极速加速器)'
-                            },
-                            ticks: {
-                                color: 'rgba极速加速器(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Visitor map chart
-            const visitorMapCtx = document.getElementById('visitorMapChart').getContext('2d');
-            const visitorMapChart = new Chart(visitorMapCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['India', 'United States', 'Germany', 'UK', 'Australia', 'Singapore', 'Canada'],
-                    datasets: [{
-                        label: 'Visitors by Country',
-                        data: [542, 327, 198, 156, 121, 98, 87],
-                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
-                        borderColor: 'rgba(59, 130, 246, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
                             grid: {
                                 color: 'rgba(255, 255, 255, 0.05)'
                             },
@@ -1833,32 +2022,15 @@
                 const backupData = backupChart.data.datasets[0].data;
                 backupData[3] = Math.min(100, backupData[3] + (Math.random() * 0.5 - 0.25));
                 
-                // Update monitoring chart
-                const monitoringData1 = monitoringChart.data.datasets[0].data;
-                const monitoringData2 = monitoringChart.data.datasets[1].data;
-                monitoringData1.push(Math.floor(Math.random() * 70) + 10);
-                monitoringData1.shift();
-                monitoringData2.push(Math.floor(Math.random() * 70) + 10);
-                monitoringData2.shift();
-                
-                // Update visitor map chart
-                const visitorData = visitorMapChart.data.datasets[0].data;
-                for (let i = 0; i < visitorData.length; i++) {
-                    visitorData[i] = Math.max(10, visitorData[i] + (Math.floor(Math.random() * 20) - 10));
-                }
+                // Update website chart
+                const websiteData = websiteChart.data.datasets[0].data;
+                websiteData.push(100);
+                websiteData.shift();
                 
                 // Update charts
                 uptimeChart.update();
                 backupChart.update();
-                monitoringChart.update();
-                visitorMapChart.update('none');
-                
-                // Update visitor count
-                const visitorCount = document.querySelector('.visitor-stat-number');
-                if (visitorCount) {
-                    const currentCount = parseInt(visitorCount.textContent.replace(',', ''));
-                    visitorCount.textContent = (currentCount + 1).toLocaleString();
-                }
+                websiteChart.update('none');
             }, 5000);
 
             // Animate charts on scroll
@@ -1877,22 +2049,6 @@
             document.querySelectorAll('.chart-container').forEach(container => {
                 chartObserver.observe(container);
             });
-            
-            // Simulate IP tracking and email notifications
-            // In a real implementation, this would be handled by a server-side script
-            const trackVisitor = () => {
-                // Get visitor IP (simplified)
-                fetch('https://api.ipify.org?format=json')
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Visitor IP:', data.ip);
-                        // In a real implementation, you would send this to your server
-                        // and then to your email address
-                    });
-            };
-            
-            // Track visitor on page load
-            trackVisitor();
         });
 
         // Function to send email
