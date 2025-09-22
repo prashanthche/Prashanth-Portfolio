@@ -2357,50 +2357,82 @@
                         </div>
                     </div>
                 </div>
-             <div class="contact-form">
-  <form id="contactForm">
-    <div class="form-group">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="user_name" class="form-control" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="user_email" class="form-control" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
-    </div>
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
-    </div>
-    <button type="submit" class="btn">Send Message</button>
-    <p id="status" style="margin-top:10px; color:green;"></p>
-  </form>
-</div>
+         <!-- Contact Section -->
+<section id="contact">
+  <div class="contact-form">
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="user_name" class="form-control" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="user_email" class="form-control" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Popup notification -->
+  <div id="popupStatus"></div>
+</section>
+
+<!-- Styles for popup -->
+<style>
+  #popupStatus {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+  }
+  #popupStatus.success { background-color: #4CAF50; }
+  #popupStatus.error { background-color: #f44336; }
+</style>
 
 <!-- EmailJS Script -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  emailjs.init('vBtxAtOHeBuHHM9oq'); // Replace with your EmailJS Public Key
+  emailjs.init('DNS-XyBr5C_PHsuz1'); // Your Public Key
 
   const form = document.getElementById('contactForm');
-  const status = document.getElementById('status');
+  const popup = document.getElementById('popupStatus');
+
+  function showPopup(message, type) {
+    popup.innerText = message;
+    popup.className = type; // success or error
+    popup.style.opacity = 1;
+    setTimeout(() => { popup.style.opacity = 0; }, 3000);
+  }
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
     emailjs.sendForm('service_apfzjl6', 'AutoResponse_tphc1vj', this)
       .then(() => {
-        status.innerText = "Message sent successfully!";
+        showPopup("Message sent successfully!", "success");
         form.reset();
       }, (err) => {
-        status.innerText = "Failed to send message. Please try again.";
-        console.error(err);
+        showPopup("Failed to send message. Please try again.", "error");
+        console.error('EmailJS Error:', err);
       });
   });
 </script>
+
 </section>
 
     <!-- Footer -->
