@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-       <style>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <style>
         :root {
             --dark-bg: #0f172a;
             --card-bg: #1e293b;
@@ -62,9 +63,7 @@
 
         h1 {
             font-size: 3.5rem;
-            background: linear-gradient(45deg, var(--accent-
-                                                   
-                                                   blue), var(--accent-green));
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -78,17 +77,16 @@
             display: inline-block;
         }
 
-     h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px; 
-    background: var(--accent-blue);
-    border-radius: 2px;
-}
-
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px; 
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
 
         p {
             margin-bottom: var(--spacing-md);
@@ -238,13 +236,15 @@
             position: relative;
             overflow: hidden;
         }
-            #profile-image {
-    width: 100%;         /* fills the box width */
-    height: 100%;        /* fills the box height */
-    object-fit: cover;   /* keeps the aspect ratio, crops overflow */
-    position: relative;
-    top: -0.5cm;         /* moves image up inside the box */
-}
+
+        #profile-image {
+            width: 100%;         /* fills the box width */
+            height: 100%;        /* fills the box height */
+            object-fit: cover;   /* keeps the aspect ratio, crops overflow */
+            position: relative;
+            top: -0.5cm;         /* moves image up inside the box */
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -291,22 +291,21 @@
         }
 
         .hero-image {
-    position: relative;
-    text-align: center;
-    margin-top: 0.9cm; /* push the whole box 0.5cm down */
-}
+            position: relative;
+            text-align: center;
+            margin-top: 0.9cm; /* push the whole box 0.5cm down */
+        }
 
         .hero-image img {
-    width: 370%;
-    height: 400px;              /* fixed height box */
-    max-width: 400px;           /* fixed max width */
-    object-fit: cover;          /* crop to fit nicely */
-    border-radius: var(--border-radius);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    margin: 0 auto;
-    display: block;
-}
-
+            width: 370%;
+            height: 400px;              /* fixed height box */
+            max-width: 400px;           /* fixed max width */
+            object-fit: cover;          /* crop to fit nicely */
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
 
         .hero-image::after {
             content: '';
@@ -481,123 +480,96 @@
         }
 
         /* About Section */
-  .about-content { 
-  display: grid;
-  grid-template-columns: 1.2fr 1fr; /* left side wider */
-  gap: var(--spacing-xl);
-  align-items: center; /* ✅ vertically center both sides */
-  min-height: 100%; /* ensures proper alignment */
-}
+        .about-content { 
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; /* left side wider */
+            gap: var(--spacing-xl);
+            align-items: center; /* ✅ vertically center both sides */
+            min-height: 100%; /* ensures proper alignment */
+        }
 
+        /* Left column */
+        .about-text p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+            color: var(--text-primary, #333);
+            font-size: 1rem;
+        }
 
-/* Left column */
-.about-text p {
-  margin-bottom: var(--spacing-md);
-  line-height: 1.7;
-  color: var(--text-primary, #333);
-  font-size: 1rem;
-}
+        /* Stats */
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
 
-/* Stats */
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
-  text-align: center;
-}
+        .stat {
+            padding: var(--spacing-sm);
+            transition: transform 0.3s ease;
+        }
 
-.stat {
-  padding: var(--spacing-sm);
-  transition: transform 0.3s ease;
-}
+        .stat:hover {
+            transform: translateY(-4px);
+        }
 
-.stat:hover {
-  transform: translateY(-4px);
-}
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-xs);
+        }
 
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent-blue);
-  margin-bottom: var(--spacing-xs);
-}
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
 
-.stat-text {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
+        /* Right column card */
+        .about-image .card {
+            background: inherit;   /* stays same as section background */
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Right column card */
-.about-image .card {
-  background: inherit;   /* stays same as section background */
-  padding: var(--spacing-lg);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .about-image .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+        }
 
-.about-image .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-}
+        .about-image h3 {
+            font-size: 1.4rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+            color: var(--text-primary, #1a1a1a);
+        }
 
-.about-image h3 {
-  font-size: 1.4rem;
-  margin-bottom: var(--spacing-md);
-  font-weight: 600;
-  color: var(--text-primary, #1a1a1a);
-}
+        /* Bullet list */
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-/* Bullet list */
-.achievement-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+        .achievement-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: var(--text-primary, #444);
+        }
 
-.achievement-list li {
-  position: relative;
-  padding-left: 24px;
-  margin-bottom: 12px;
-  font-size: 1rem;
-  color: var(--text-primary, #444);
-}
-
-.achievement-list li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--accent-blue);
-  font-weight: bold;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    align-items: start; /* reset for stacked layout */
-  }
-}
-  .about-stats {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-@media (max-width: 600px) {
-  .about-stats {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-  }
-
-  .stat-number {
-    font-size: 1.5rem;
-  }
-
-  .about-image .card {
-    padding: var(--spacing-md);
-  }
-}
+        .achievement-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
 
         /* NEW: Skills Section Redesign */
         .skills-container {
@@ -630,7 +602,7 @@
             font-size: 1.3rem;
         }
 
-      .skill-category h3 i {
+        .skill-category h3 i {
             margin-right: var(--spacing-sm);
             font-size: 1.5rem;
             width: 30px;
@@ -701,76 +673,76 @@
         }
 
         .timeline::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: var(--accent-blue);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
-    border-radius: 3px; 
-}
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px; 
+        }
 
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
-}
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
 
-.timeline-item:nth-child(odd) { 
-    left: 0;
-}
+        .timeline-item:nth-child(odd) { 
+            left: 0;
+        }
 
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
 
-.timeline-content {
-    padding: var(--spacing-lg);
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+        .timeline-content {
+            padding: var(--spacing-lg);
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
 
-.timeline-date {
-    font-weight: 600;
-    color: var(--accent-green);
-    margin-bottom: var(--spacing-sm);
-}
+        .timeline-date {
+            font-weight: 600;
+            color: var(--accent-green);
+            margin-bottom: var(--spacing-sm);
+        }
 
-.timeline-role {
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-}
+        .timeline-role {
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
 
-.timeline-company {
-    color: var(--accent-blue);
-    margin-bottom: var(--spacing-md);
-}
+        .timeline-company {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-md);
+        }
 
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: var(--accent-green);
-    border: 4px solid var(--dark-bg);
-    border-radius: 50%;
-    top: 20px;
-    z-index: 1;
-}
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-green);
+            border: 4px solid var(--dark-bg);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
 
-.timeline-item:nth-child(odd)::after {
-    right: -10px;
-}
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
 
         .timeline-item:nth-child(even)::after {
             left: -10px;
         }
-/* Tesitimonial */
-   /* NEW: Testimonials Section - Corporate Style */
+
+        /* NEW: Testimonials Section - Corporate Style */
         .testimonials-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -871,6 +843,7 @@
             margin-right: 8px;
             color: var(--accent-green);
         }
+
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -951,6 +924,7 @@
             justify-content: center;
             gap: var(--spacing-md);
             margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
         }
 
         .social-link {
@@ -960,7 +934,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--card极速加速器-bg);
+            background: var(--card-bg);
             color: var(--text-primary);
             font-size: 1.2rem;
             transition: var(--transition);
@@ -1150,6 +1124,204 @@
             font-weight: bold;
         }
 
+        /* Dashboard Styles */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .dashboard-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--accent-blue);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .dashboard-card {
+            position: relative;
+            overflow: hidden;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+        }
+
+        .dashboard-card h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            color: var(--accent-green);
+        }
+
+        .dashboard-card h3 i {
+            margin-right: var(--spacing-sm);
+            font-size: 1.5rem;
+        }
+
+        .metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin: var(--spacing-md) 0;
+        }
+
+        .metric-change {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        .metric-change.negative {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .skill {
+            margin: 1.25rem 0;
+        }
+
+        .skill label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            z-index: 1;
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 20px;
+            }
+        }
+
+        .card-wide {
+            grid-column: span 2;
+        }
+
+        .card-tall {
+            grid-row: span 2;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: #ef4444;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+   /* Download Resume Button */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(45deg, var(--accent-gold), #4b16f9);
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(45deg, #3b82f6, var(--accent-blue));
+        }
+         /* Download Cover Letter Button */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(45deg, var(--accent-gold), #4b16f9);
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(45deg, #3b82f6, var(--accent-blue));
+        }
         /* Responsive Design */
         @media (max-width: 992px) {
             h1 {
@@ -1198,6 +1370,10 @@
             .certifications-container {
                 grid-template-columns: 1fr;
             }
+
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1230,22 +1406,45 @@
             .skill-list {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-wide, .card-tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .about-image .card {
+                padding: var(--spacing-md);
+            }
         }
     </style>
 </head>
 <body>
-    <script>
-    // Select the profile box
-    const profileBox = document.querySelector('.hero-image');
-
-    // Get width and height
-    const boxWidth = profileBox.offsetWidth;   // Width in pixels
-    const boxHeight = profileBox.offsetHeight; // Height in pixels
-
-    // Print the size in console
-    console.log(`Width: ${boxWidth}px, Height: ${boxHeight}px`);
-</script>
-
     <!-- Header & Navigation -->
     <header>
         <div class="container">
@@ -1276,17 +1475,43 @@
                     <span class="title">IT Infrastructure & Technical Support Specialist</span>
                     <p>Transforming complex IT challenges into seamless solutions with 8+ years of international expertise in Windows, VMware, and Active Directory environments.</p>
                     <div class="hero-cta">
-                        <a href="#contact" class="btn">Get In Touch</a>
-                        <a href="#dashboard" class="btn btn-outline" style="margin-left: 12px;">View Dashboard</a>
-                    </div>
+    <a href="#contact" class="btn">Get In Touch</a>
+    <a href="#dashboard" class="btn btn-outline" id="viewDashboardBtn">View Dashboard</a>
+   <!-- Download Resume Button -->
+<a href="#" class="btn btn-download" id="downloadResumeBtn">
+    <i class="fas fa-download"></i> Download My Resume
+</a>
+<a href="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/Cover%20Letter%20Prashanth%20Sankar.pdf" 
+   class="btn btn-outline" 
+   download="Cover_Letter_Prashanth_Sankar.pdf" 
+   style="margin-left: 12px;">Download Cover Letter</a>
+<script>
+    document.getElementById("downloadResumeBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        const link = document.createElement("a");
+        link.href = "https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/Resume_Prashanth_Sankar_Updated.pdf";
+        link.download = "Prashanth_Sankar_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+</script>
+</div>
                     <div class="hero-contact-info" style="margin-top: var(--spacing-md);">
-                        <p><i class="fas fa-phone"></i> +919940627357 | <i class="fas fa-envelope"></i> prashanthche@gmail.com | <i class="fas fa-map-marker-alt"></i> India</p>
+                        <p>
+                            <i class="fas fa-phone"></i> +919940627357 | 
+                            <i class="fas fa-envelope"></i> prashanthche@gmail.com | 
+                            <i class="fas fa-map-marker-alt"></i> India
+                        </p>
                         <div class="social-links" style="justify-content: flex-start; margin-top: var(--spacing-sm);">
-                            <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link" style="width: 40px; height: 40px;"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://github.com/prashanthche" class="social-link" style="width: 40px; height: 40px;"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link" style="width: 40px; height: 40px;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/prashanthche" class="social-link" style="width: 40px; height: 40px;">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>                   
-                    
                 </div>
                 <div class="hero-image fade-in delay-1">
                     <img id="profile-image" src="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/DSC_1081%20(2).jpg" alt="Prashanth Sankar - IT Support Specialist">
@@ -1296,68 +1521,69 @@
     </section>
 
     <!-- About Section -->
-<section id="about" class="about-section">
-  <div class="container">
-    <!-- Section Title -->
-    <div class="section-title">
-      <h2>About Me</h2>
-      <p class="subtitle">Transforming IT challenges into seamless solutions</p>
-    </div>
+    <section id="about" class="about-section">
+        <div class="container">
+            <!-- Section Title -->
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p class="subtitle">Transforming IT challenges into seamless solutions</p>
+            </div>
 
-    <div class="about-grid">
-      <!-- Left Content -->
-      <div class="about-text">
-        <p>
-          IT Infrastructure & Support Specialist with 
-          <strong>8+ years of international experience</strong>. 
-          Expert in reducing downtime by <strong>30%</strong> and improving 
-          system efficiency through proactive management of 
-          <strong>Windows, VMware, and Active Directory</strong> environments.
-        </p>
-        <p>
-          Seeking to leverage my expertise in incident resolution and 
-          infrastructure monitoring in a challenging 
-          <strong>Technical Support Specialist</strong> role.
-        </p>
+            <div class="about-content">
+                <!-- Left Content -->
+                <div class="about-text">
+                    <p>
+                        IT Infrastructure & Support Specialist with 
+                        <strong>8+ years of international experience</strong>. 
+                        Expert in reducing downtime by <strong>30%</strong> and improving 
+                        system efficiency through proactive management of 
+                        <strong>Windows, VMware, and Active Directory</strong> environments.
+                    </p>
+                    <p>
+                        Seeking to leverage my expertise in incident resolution and 
+                        infrastructure monitoring in a challenging 
+                        <strong>Technical Support Specialist</strong> role.
+                    </p>
 
-        <!-- Stats -->
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-number">8+</div>
-            <div class="stat-text">Years Experience</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">99.5%</div>
-            <div class="stat-text">Uptime Achieved</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">30%</div>
-            <div class="stat-text">Downtime Reduced</div>
-          </div>
+                    <!-- Stats -->
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-text">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">99.5%</div>
+                            <div class="stat-text">Uptime Achieved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">30%</div>
+                            <div class="stat-text">Downtime Reduced</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content (Card Style) -->
+                <div class="about-image">
+                    <div class="card expertise-card">
+                        <h3>My Expertise</h3>
+                        <p>I specialize in transforming complex IT challenges into seamless solutions:</p>
+                        <ul class="achievement-list">
+                            <li>Proactive infrastructure monitoring and maintenance</li>
+                            <li>Incident management and root cause analysis</li>
+                            <li>Windows, VMware, and Active Directory management</li>
+                            <li>IT process optimization and automation</li>
+                            <li>Cross-functional team collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Right Content (Card Style) -->
-      <div class="about-image">
-        <div class="card expertise-card">
-          <h3>My Expertise</h3>
-          <p>I specialize in transforming complex IT challenges into seamless solutions:</p>
-          <ul class="achievement-list">
-            <li>Proactive infrastructure monitoring and maintenance</li>
-            <li>Incident management and root cause analysis</li>
-            <li>Windows, VMware, and Active Directory management</li>
-            <li>IT process optimization and automation</li>
-            <li>Cross-functional team collaboration</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
     <!-- Skills Section -->
     <section id="skills">
         <div class="container">
-           <div class="section-title">
+            <div class="section-title">
                 <h2>Technical Skills</h2>
                 <p>Hover over each skill to see more details</p>
             </div>
@@ -1478,7 +1704,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- NEW: Additional Skills -->
+                <!-- Additional Skills -->
                 <div class="skill-category">
                     <h3><i class="fas fa-exclamation-circle"></i> Issue Escalation & RCA</h3>
                     <div class="skill-list">
@@ -1583,7 +1809,7 @@
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-linux"></i>
-                           <span class="skill-name">Linux Administration</span>
+                            <span class="skill-name">Linux Administration</span>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-headset"></i>
@@ -1598,209 +1824,209 @@
             </div>
         </div>
     </section>
-   
-        <!-- Experience Section -->
-<section id="experience">
-    <div class="container">
-        <div class="section-title">
-            <h2>Work Experience</h2>
-        </div>
-        <div class="timeline">
 
-            <!-- Stakelogic -->
-            <div class="timeline-item">
-                <div class="timeline-content card">
-                    <div class="timeline-date">Jun 2023 - Jul 2025</div>
-                    <div class="timeline-role">Tier 2 - Technical Support Specialist</div>
-                    <div class="timeline-company">Stakelogic Live | Birkirkara</div>
-                    <p>Delivered end-to-end IT support for gaming platforms, resolving 95% of escalated tickets within SLA and maintaining uptime above 99.5%.</p>
-                    <ul class="achievement-list">
-                        <li>Conducted root cause analysis (RCA) using Kibana and Dynatrace, reducing repeat incidents by 20%</li>
-                        <li>Proficient in Java and JSON debugging, SQL querying, and Linux scripting</li>
-                        <li>Collaborated with Tier 3 teams to resolve complex problems</li>
-                        <li>Created knowledge bases and technical documentation</li>
-                    </ul>
-                </div>
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
             </div>
+            <div class="timeline">
 
-            <!-- Prosecure -->
-            <div class="timeline-item">
-                <div class="timeline-content card">
-                    <div class="timeline-date">Sep 2021 - May 2023</div>
-                    <div class="timeline-role">IT Engineer</div>
-                    <div class="timeline-company">Prosecure Limited | Marsa</div>
-                    <p>Managed Microsoft Active Directory, VMWare virtualization, and Veeam backups for enterprise IT operations.</p>
-                    <ul class="achievement-list">
-                        <li>Improved system uptime to 99.9% through proactive monitoring</li>
-                        <li>Successfully restored operations during disaster recovery incidents</li>
-                        <li>Optimized Veeam backup strategy, cutting recovery time by 40%</li>
-                        <li>Led migration of 50+ user accounts in Active Directory</li>
-                    </ul>
+                <!-- Stakelogic -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Jun 2023 - Jul 2025</div>
+                        <div class="timeline-role">Tier 2 - Technical Support Specialist</div>
+                        <div class="timeline-company">Stakelogic Live | Birkirkara</div>
+                        <p>Delivered end-to-end IT support for gaming platforms, resolving 95% of escalated tickets within SLA and maintaining uptime above 99.5%.</p>
+                        <ul class="achievement-list">
+                            <li>Conducted root cause analysis (RCA) using Kibana and Dynatrace, reducing repeat incidents by 20%</li>
+                            <li>Proficient in Java and JSON debugging, SQL querying, and Linux scripting</li>
+                            <li>Collaborated with Tier 3 teams to resolve complex problems</li>
+                            <li>Created knowledge bases and technical documentation</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Future Focus -->
-            <div class="timeline-item">
-                <div class="timeline-content card">
-                    <div class="timeline-date">Jul 2020 - Sep 2021</div>
-                    <div class="timeline-role">IT Support Specialist</div>
-                    <div class="timeline-company">Future Focus Limited | Floriana</div>
-                    <ul class="achievement-list">
-                        <li>Provided technical support for staff, faculty, and students, ensuring minimal disruption</li>
-                        <li>Managed hardware, software, and network resources, including LMS</li>
-                        <li>Maintained and supported the educational portal with 99.5% uptime</li>
-                        <li>Administered Shireburn payroll software, ensuring accurate salary processing</li>
-                        <li>Reduced ticket resolution time by 25%, improving satisfaction</li>
-                        <li>Implemented security measures, reducing unauthorized access attempts by 40%</li>
-                        <li>Trained faculty/staff, reducing repeat requests by 15%</li>
-                    </ul>
+                <!-- Prosecure -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Sep 2021 - May 2023</div>
+                        <div class="timeline-role">IT Engineer</div>
+                        <div class="timeline-company">Prosecure Limited | Marsa</div>
+                        <p>Managed Microsoft Active Directory, VMWare virtualization, and Veeam backups for enterprise IT operations.</p>
+                        <ul class="achievement-list">
+                            <li>Improved system uptime to 99.9% through proactive monitoring</li>
+                            <li>Successfully restored operations during disaster recovery incidents</li>
+                            <li>Optimized Veeam backup strategy, cutting recovery time by 40%</li>
+                            <li>Led migration of 50+ user accounts in Active Directory</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Force Recruitment -->
-            <div class="timeline-item">
-                <div class="timeline-content card">
-                    <div class="timeline-date">Sep 2019 - May 2020</div>
-                    <div class="timeline-role">IT Support Engineer</div>
-                    <div class="timeline-company">Force Recruitment Agency | Mosta</div>
-                    <ul class="achievement-list">
-                        <li>Delivered multilingual IT support across remote and on-site environments</li>
-                        <li>Ensured compliance with EU data protection and IT security standards</li>
-                        <li>Resolved 90% of tickets within SLA, increasing satisfaction by 20%</li>
-                        <li>Supported 300+ users across multiple sites with minimal downtime</li>
-                    </ul>
+                <!-- Future Focus -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Jul 2020 - Sep 2021</div>
+                        <div class="timeline-role">IT Support Specialist</div>
+                        <div class="timeline-company">Future Focus Limited | Floriana</div>
+                        <ul class="achievement-list">
+                            <li>Provided technical support for staff, faculty, and students, ensuring minimal disruption</li>
+                            <li>Managed hardware, software, and network resources, including LMS</li>
+                            <li>Maintained and supported the educational portal with 99.5% uptime</li>
+                            <li>Administered Shireburn payroll software, ensuring accurate salary processing</li>
+                            <li>Reduced ticket resolution time by 25%, improving satisfaction</li>
+                            <li>Implemented security measures, reducing unauthorized access attempts by 40%</li>
+                            <li>Trained faculty/staff, reducing repeat requests by 15%</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- JKA Solutions -->
-            <div class="timeline-item">
-                <div class="timeline-content card">
-                    <div class="timeline-date">Sep 2016 - Jun 2019</div>
-                    <div class="timeline-role">IT Support Specialist</div>
-                    <div class="timeline-company">JKA Solutions Pvt Ltd | Hyderabad</div>
-                    <ul class="achievement-list">
-                        <li>Provided end-user support for hardware, software, and network issues</li>
-                        <li>Installed, configured, and maintained systems and peripherals</li>
-                        <li>Resolved issues with minimal downtime</li>
-                        <li>Supported testing, documentation, and quality checks</li>
-                        <li>Assisted in process and inventory management for smooth operations</li>
-                    </ul>
+                <!-- Force Recruitment -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Sep 2019 - May 2020</div>
+                        <div class="timeline-role">IT Support Engineer</div>
+                        <div class="timeline-company">Force Recruitment Agency | Mosta</div>
+                        <ul class="achievement-list">
+                            <li>Delivered multilingual IT support across remote and on-site environments</li>
+                            <li>Ensured compliance with EU data protection and IT security standards</li>
+                            <li>Resolved 90% of tickets within SLA, increasing satisfaction by 20%</li>
+                            <li>Supported 300+ users across multiple sites with minimal downtime</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Giesecke & Devrient -->
-            <div class="timeline-item">
-                <div class="timeline-content card">
-                    <div class="timeline-date">Aug 2015 - Aug 2016</div>
-                    <div class="timeline-role">Technical Assistant</div>
-                    <div class="timeline-company">Giesecke & Devrient India Pvt Ltd | Chennai</div>
-                    <ul class="achievement-list">
-                        <li>Provided technical support in operations, maintenance, and troubleshooting</li>
-                        <li>Assisted engineers with testing, documentation, and quality checks</li>
-                        <li>Ensured compliance with company standards and secure workflows</li>
-                        <li>Supported processes and coordinated inventory for operations</li>
-                    </ul>
+                <!-- JKA Solutions -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Sep 2016 - Jun 2019</div>
+                        <div class="timeline-role">IT Support Specialist</div>
+                        <div class="timeline-company">JKA Solutions Pvt Ltd | Hyderabad</div>
+                        <ul class="achievement-list">
+                            <li>Provided end-user support for hardware, software, and network issues</li>
+                            <li>Installed, configured, and maintained systems and peripherals</li>
+                            <li>Resolved issues with minimal downtime</li>
+                            <li>Supported testing, documentation, and quality checks</li>
+                            <li>Assisted in process and inventory management for smooth operations</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Zebronics -->
-            <div class="timeline-item">
-                <div class="timeline-content card">
-                    <div class="timeline-date">Dec 2014 - Aug 2015</div>
-                    <div class="timeline-role">Technical Research Assistant</div>
-                    <div class="timeline-company">Zebronics India Pvt Ltd | Chennai</div>
-                    <ul class="achievement-list">
-                        <li>Assembled, configured, and optimized computer hardware systems</li>
-                        <li>Conducted diagnostics, benchmarking, and component-level troubleshooting</li>
-                    </ul>
+                <!-- Giesecke & Devrient -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Aug 2015 - Aug 2016</div>
+                        <div class="timeline-role">Technical Assistant</div>
+                        <div class="timeline-company">Giesecke & Devrient India Pvt Ltd | Chennai</div>
+                        <ul class="achievement-list">
+                            <li>Provided technical support in operations, maintenance, and troubleshooting</li>
+                            <li>Assisted engineers with testing, documentation, and quality checks</li>
+                            <li>Ensured compliance with company standards and secure workflows</li>
+                            <li>Supported processes and coordinated inventory for operations</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    </div>
-</section>
+                <!-- Zebronics -->
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <div class="timeline-date">Dec 2014 - Aug 2015</div>
+                        <div class="timeline-role">Technical Research Assistant</div>
+                        <div class="timeline-company">Zebronics India Pvt Ltd | Chennai</div>
+                        <ul class="achievement-list">
+                            <li>Assembled, configured, and optimized computer hardware systems</li>
+                            <li>Conducted diagnostics, benchmarking, and component-level troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <!-- NEW: Certifications Section -->
-<section id="certifications">
-    <div class="container">
-        <div class="section-title">
-            <h2>Certifications</h2>
-        </div>
-        <div class="certifications-container">
-            <div class="certification-item fade-in">
-                <div class="certification-icon">
-                    <i class="fab fa-google"></i>
-                </div>
-                <div class="certification-info">
-                    <div class="certification-name">IT Service Desk Careers and Certifications</div>
-                    <div class="certification-issuer">Google</div>
-                </div>
-            </div>
-
-            <div class="certification-item fade-in delay-1">
-                <div class="certification-icon">
-                    <i class="fab fa-google"></i>
-                </div>
-                <div class="certification-info">
-                    <div class="certification-name">Operating Systems and Power User</div>
-                    <div class="certification-issuer">Google</div>
-                </div>
-            </div>
-
-            <div class="certification-item fade-in delay-2">
-                <div class="certification-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
-                <div class="certification-info">
-                    <div class="certification-name">Windows Server 2022: DHCP and DNS</div>
-                    <div class="certification-issuer">LinkedIn</div>
-                </div>
-            </div>
-
-            <div class="certification-item fade-in">
-                <div class="certification-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
-                <div class="certification-info">
-                    <div class="certification-name">Learning ITIL® (2019)</div>
-                    <div class="certification-issuer">LinkedIn</div>
-                </div>
-            </div>
-
-            <div class="certification-item fade-in delay-1">
-                <div class="certification-icon">
-                    <i class="fab fa-atlassian"></i>
-                </div>
-                <div class="certification-info">
-                    <div class="certification-name">Jira Service Management</div>
-                    <div class="certification-issuer">Atlassian</div>
-                </div>
-            </div>
-
-            <div class="certification-item fade-in delay-2">
-                <div class="certification-icon">
-                    <i class="fab fa-atlassian"></i>
-                </div>
-                <div class="certification-info">
-                    <div class="certification-name">Bitbucket Pipelines Configuration</div>
-                    <div class="certification-issuer">Atlassian</div>
-                </div>
-            </div>
-
-            <div class="certification-item fade-in">
-                <div class="certification-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
-                <div class="certification-info">
-                    <div class="certification-name">IT Service Desk Careers and Certifications</div>
-                    <div class="certification-issuer">LinkedIn</div>
-                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- NEW: Education Section -->
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certifications-container">
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">IT Service Desk Careers and Certifications</div>
+                        <div class="certification-issuer">Google</div>
+                    </div>
+                </div>
+
+                <div class="certification-item fade-in delay-1">
+                    <div class="certification-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Operating Systems and Power User</div>
+                        <div class="certification-issuer">Google</div>
+                    </div>
+                </div>
+
+                <div class="certification-item fade-in delay-2">
+                    <div class="certification-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Windows Server 2022: DHCP and DNS</div>
+                        <div class="certification-issuer">LinkedIn</div>
+                    </div>
+                </div>
+
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Learning ITIL® (2019)</div>
+                        <div class="certification-issuer">LinkedIn</div>
+                    </div>
+                </div>
+
+                <div class="certification-item fade-in delay-1">
+                    <div class="certification-icon">
+                        <i class="fab fa-atlassian"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Jira Service Management</div>
+                        <div class="certification-issuer">Atlassian</div>
+                    </div>
+                </div>
+
+                <div class="certification-item fade-in delay-2">
+                    <div class="certification-icon">
+                        <i class="fab fa-atlassian"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">Bitbucket Pipelines Configuration</div>
+                        <div class="certification-issuer">Atlassian</div>
+                    </div>
+                </div>
+
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="certification-info">
+                        <div class="certification-name">IT Service Desk Careers and Certifications</div>
+                        <div class="certification-issuer">LinkedIn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
     <section id="education">
         <div class="container">
             <div class="section-title">
@@ -1830,616 +2056,465 @@
             </div>
         </div>
     </section>
-    
-<!-- Dashboard Section --> 
- <section class="Dashboard">
-    <div class="header">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Performance Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
-    <style>
-        :root {
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #3b82f6;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --border: #334155;
-            --gradient-start: #6366f1;
-            --gradient-end: #8b5cf6;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 0;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        .dashboard {
-            padding: 2rem;
-            max-width: 1800px;
-            margin: 0 auto;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
-        }
-
-        .header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .controls {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .control-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .control-btn:hover {
-            background: var(--accent);
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .dashboard-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dashboard-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-        }
-
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-        }
-
-        .dashboard-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .dashboard-card h3 i {
-            color: var(--accent);
-        }
-
-        .dashboard-card > p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .metric {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 1rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .metric-change {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--success);
-            background: rgba(16, 185, 129, 0.15);
-            padding: 0.25rem 0.5rem;
-            border-radius: 20px;
-        }
-
-        .metric-change.negative {
-            color: var(--danger);
-            background: rgba(239, 68, 68, 0.15);
-        }
-
-        .chart-container {
-            height: 200px;
-            margin: 1.5rem 0;
-            position: relative;
-        }
-
-        .server-status {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin: 0.75rem 0;
-        }
-
-        .status-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .status-indicator.online {
-            background: var(--success);
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-        }
-
-        .status-indicator.offline {
-            background: var(--danger);
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
-        }
-
-        .status-indicator.warning {
-            background: var(--warning);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
-        }
-
-        .server-list {
-            margin-top: 1.5rem;
-        }
-
-        .server-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .server-item:last-child {
-            border-bottom: none;
-        }
-
-        .server-name {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .skill {
-            margin: 1.25rem 0;
-        }
-
-        .skill label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .progress-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-            position: relative;
-        }
-
-        .progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-image: linear-gradient(
-                -45deg,
-                rgba(255, 255, 255, 0.2) 25%,
-                transparent 25%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.2) 50%,
-                rgba(255, 255, 255, 0.2) 75%,
-                transparent 75%,
-                transparent
-            );
-            z-index: 1;
-            background-size: 20px 20px;
-            animation: move 1s linear infinite;
-        }
-
-        @keyframes move {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 20px 20px;
-            }
-        }
-
-        .card-wide {
-            grid-column: span 2;
-        }
-
-        .card-tall {
-            grid-row: span 2;
-        }
-
-        .notification-badge {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: var(--danger);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .dashboard-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .card-wide, .card-tall {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-            
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            
-            .controls {
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="dashboard">
-        <div class="header">
-            <div>
-                <h1>System Performance Dashboard</h1>
-                <p>Live monitoring of key infrastructure metrics</p>
-            </div>
-            <div class="controls">
-                <button class="control-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
-                <button class="control-btn"><i class="fas fa-cog"></i> Settings</button>
-                <button class="control-btn"><i class="fas fa-bell"></i> Alerts</button>
-            </div>
-        </div>
-
-        <div class="dashboard-grid">
-            <!-- System Uptime Card -->
-            <div class="dashboard-card fade-in">
-                <h3><i class="fas fa-server"></i> System Uptime</h3>
-                <p>Current server availability and performance metrics</p>
-                <div class="metric">99.95% <span class="metric-change">+2.5%</span></div>
-                <div class="chart-container">
-                    <canvas id="uptimeChart"></canvas>
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div>
+                    <h1>System Performance Dashboard</h1>
+                    <p>Live monitoring of key infrastructure metrics</p>
                 </div>
-                <div class="server-status">
-                    <div class="status-indicator online"></div>
-                    <span>All systems operational</span>
-                </div>
-                <div class="server-status">
-                    <div class="status-indicator offline"></div>
-                    <span>No downtime recorded</span>
+                <div class="controls">
+                    <button class="control-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="control-btn"><i class="fas fa-cog"></i> Settings</button>
+                    <button class="control-btn"><i class="fas fa-bell"></i> Alerts</button>
                 </div>
             </div>
+
+            <div class="dashboard-grid">
+                <!-- System Uptime Card -->
+                <div class="dashboard-card fade-in">
+                    <h3><i class="fas fa-server"></i> System Uptime</h3>
+                    <p>Current server availability and performance metrics</p>
+                    <div class="metric">99.95% <span class="metric-change">+2.5%</span></div>
+                    <div class="chart-container">
+                        <canvas id="uptimeChart"></canvas>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
+                        <span>All systems operational</span>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator offline"></div>
+                        <span>No downtime recorded</span>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator warning"></div>
+                        <span>No downtime recorded</span>
+                    </div>
+                </div>
+
+                <!-- CPU Usage Card -->
+                <div class="dashboard-card fade-in">
+                    <h3><i class="fas fa-microchip"></i> CPU Usage</h3>
+                    <p>Real-time CPU utilization across servers</p>
+                    <div class="metric">42% <span class="metric-change">-8%</span></div>
+                    <div class="chart-container">
+                        <canvas id="cpuChart"></canvas>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
+                        <span>Within normal parameters</span>
+                    </div>
+                </div>
+
+                <!-- Memory Usage Card -->
+                <div class="dashboard-card fade-in delay-1">
+                    <h3><i class="fas fa-memory"></i> Memory Usage</h3>
+                    <p>RAM utilization across the server cluster</p>
+                    <div class="metric">64% <span class="metric-change">+4%</span></div>
+                    <div class="chart-container">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator warning"></div>
+                        <span>Approaching threshold</span>
+                    </div>
+                </div>
+
+                <!-- Incidents Resolved Card -->
+                <div class="dashboard-card fade-in delay-1">
+                    <h3><i class="fas fa-check-circle"></i> Incidents Resolved</h3>
+                    <p>Number of incidents resolved per month</p>
+                    <div class="chart-container">
+                        <canvas id="incidentsChart"></canvas>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
+                        <span>15% improvement from last month</span>
+                    </div>
+                </div>
+
+                <!-- Skill Proficiency Card -->
+                <div class="dashboard-card fade-in delay-2 card-wide">
+                    <h3><i class="fas fa-user-cog"></i> Skill Proficiency</h3>
+                    <p>Your technical skill levels and certifications</p>
+                    <div class="skills-container">
+                        <div class="skill">
+                            <label>System Administration <span>90%</span></label>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <label>Network Monitoring <span>85%</span></label>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <label>Technical Support <span>95%</span></label>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <label>Security Protocols <span>78%</span></label>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backup Optimization Card -->
+                <div class="dashboard-card fade-in delay-1">
+                    <h3><i class="fas fa-database"></i> Backup Optimization</h3>
+                    <p>Data protection and recovery metrics</p>
+                    <div class="metric">98.7% <span class="metric-change">+15%</span></div>
+                    <div class="chart-container">
+                        <canvas id="backupChart"></canvas>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
+                        <span>Last backup: 2 hours ago</span>
+                    </div>
+                </div>
+
+                <!-- Network Traffic Card -->
+                <div class="dashboard-card fade-in delay-2">
+                    <h3><i class="fas fa-network-wired"></i> Network Traffic</h3>
+                    <p>Inbound and outbound data flow</p>
+                    <div class="chart-container">
+                        <canvas id="networkChart"></canvas>
+                    </div>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
+                        <span>No anomalies detected</span>
+                    </div>
+                </div>
              
-            <!-- CPU Usage Card -->
-             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <div class="dashboard-card fade-in">
-                <h3><i class="fas fa-microchip"></i> CPU Usage</h3>
-                <p>Real-time CPU utilization across servers</p>
-                <div class="metric">42% <span class="metric-change">-8%</span></div>
-                <div class="chart-container">
-                    <canvas id="cpuChart"></canvas>
-                </div>
-                <div class="server-status">
-                    <div class="status-indicator online"></div>
-                    <span>Within normal parameters</span>
-                </div>
-                <script src="charts.js"></script>
-            </div></script>
-
-            <!-- Memory Usage Card -->
-<div class="dashboard-card fade-in delay-1">
-    <h3><i class="fas fa-memory"></i> Memory Usage</h3>
-    <p>RAM utilization across the server cluster</p>
-    <div class="metric">64% <span class="metric-change">+4%</span></div>
-    <div class="chart-container">
-        <canvas id="memoryChart"></canvas>
+              <!-- Recent Alerts Card -->
+<div class="dashboard-card fade-in delay-2">
+    <h3><i class="fas fa-bell"></i> Recent Alerts</h3>
+    <p>System notifications and warnings</p>
+    <div class="notification-badge">5</div>
+    
+    <div class="server-list">
+        <!-- Newest Alerts First -->
+        <div class="server-item">
+            <div class="server-name">
+                <div class="status-indicator online"></div>
+                <span>Network Traffic Spiked</span>
+            </div>
+            <span>5 min ago</span>
+        </div>
+        <div class="server-item">
+            <div class="server-name">
+                <div class="status-indicator online"></div>
+                <span>High Memory Usage</span>
+            </div>
+            <span>10 min ago</span>
+        </div>
+        <div class="server-item">
+            <div class="server-name">
+                <div class="status-indicator online"></div>
+                <span>Backup Completed</span>
+            </div>
+            <span>2 hours ago</span>
+        </div>                        
+        <div class="server-item">
+            <div class="server-name">
+                <div class="status-indicator online"></div>
+                <span> Activity Monitor </span>
+            </div>
+            <span>5 hours ago</span>
+        </div>
+        <div class="server-item">
+            <div class="server-name">
+                <div class="status-indicator online"></div>
+                <span>CPU Usage Spiked</span>
+            </div>
+            <span>12 hours ago</span>
+        </div>
     </div>
-    <div class="server-status">
-        <div class="status-indicator warning"></div>
-        <span>Approaching threshold</span>
-    </div>
-</div>
+</div></div>
+</section> 
 
-
-            <!-- Incidents Resolved Card -->
-             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <div class="dashboard-card fade-in delay-1">
-                <h3><i class="fas fa-check-circle"></i> Incidents Resolved</h3>
-                <p>Number of incidents resolved per month</p>
-                <div class="chart-container">
-                    <canvas id="incidentsChart"></canvas>
-                </div>
-                <div class="server-status">
-                    <div class="status-indicator online"></div>
-                    <span>15% improvement from last month</span>
-                <script src="charts.js"></script>
-                </div>
-                </div>
-
-            <!-- Skill Proficiency Card -->
-            <div class="dashboard-card fade-in delay-2 card-wide">
-                <h3><i class="fas fa-user-cog"></i> Skill Proficiency</h3>
-                <p>Your technical skill levels and certifications</p>
-                <div class="skills-container">
-                    <div class="skill">
-                        <label>System Administration <span>90%</span></label>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <label>Network Monitoring <span>85%</span></label>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <label>Technical Support <span>95%</span></label>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <label>Security Protocols <span>78%</span></label>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 78%;"></div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Colleague Testimonials</h2>
+                <p>Professional endorsements from colleagues and clients</p>
             </div>
-
-            <!-- Backup Optimization Card -->
-            <div class="dashboard-card fade-in delay-1">
-                <h3><i class="fas fa-database"></i> Backup Optimization</h3>
-                <p>Data protection and recovery metrics</p>
-                <div class="metric">98.7% <span class="metric-change">+15%</span></div>
-                <div class="chart-container">
-                    <canvas id="backupChart"></canvas>
-                </div>
-                <div class="server-status">
-                    <div class="status-indicator online"></div>
-                    <span>Last backup: 2 hours ago</span>
-                </div>
-            </div>
-           
-            <!-- Network Traffic Card -->
-            <div class="dashboard-card fade-in delay-2">
-                <h3><i class="fas fa-network-wired"></i> Network Traffic</h3>
-                <p>Inbound and outbound data flow</p>
-                <div class="chart-container">
-                    <canvas id="networkChart"></canvas>
-                </div>
-                <div class="server-status">
-                    <div class="status-indicator online"></div>
-                    <span>No anomalies detected</span>
-                </div>
-            </div>
-
-            <!-- Vindral Live Stream Card -->
-            <div class="dashboard-card fade-in delay-2 card-wide">
-                <h3><i class="fas fa-globe"></i> Vindral Live Stream</h3>
-                <p>Real-time monitoring: Quantum_Server</p>
-                <div class="metric">100% <span class="metric-change">+5%</span></div>
-                <div class="chart-container">
-                    <canvas id="websiteChart"></canvas>
-                </div>
-                <div class="server-list">
-                    <div class="server-item">
-                        <div class="server-name">
-                            <div class="status-indicator online"></div>
-                            <span>GitHub Pages</span>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-header">
+                        <img src="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/src/DC1063.jpg" alt="Director" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <div class="testimonial-author">Prosecure Ltd Directorate</div>
+                            <div class="testimonial-role">Director of IT Operations</div>
                         </div>
-                        <span>100% uptime</span>
                     </div>
-                    <div class="server-item">
-                        <div class="server-name">
-                            <div class="status-indicator online"></div>
-                            <span>DNS Resolution</span>
-                        </div>
-                        <span>99.95% uptime</span>
+                    <div class="testimonial-text">
+                        Prashanth consistently delivered exceptional results under pressure. His troubleshooting skills and ability to quickly learn new systems were impressive. He played a key role in maintaining our 99.9% uptime and was instrumental in our disaster recovery planning.
                     </div>
-                    <div class="server-item">
-                        <div class="server-name">
-                            <div class="status-indicator online"></div>
-                            <span>SSL Certificate</span>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-company">
+                            <i class="fas fa-building"></i>
+                            <span>Prosecure Limited</span>
                         </div>
-                        <span>Valid till: 26-12-31</span>
+                        <div class="testimonial-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>Sep 2021 - May 2023</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Recent Alerts Card -->
-            <div class="dashboard-card fade-in delay-2">
-                <h3><i class="fas fa-bell"></i> Recent Alerts</h3>
-                <p>System notifications and warnings</p>
-                <div class="notification-badge">3</div>
-                
-                <div class="server-list">
-                    <div class="server-item">
-                        <div class="server-name">
-                            <div class="status-indicator warning"></div>
-                            <span>High Memory Usage</span>
+                <div class="testimonial-card fade-in delay-1">
+                    <div class="testimonial-header">
+                        <img src="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/src/DC1064.jpg" alt="Team Lead" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <div class="testimonial-author">Stakelogic Team Lead</div>
+                            <div class="testimonial-role">Technical Team Lead</div>
                         </div>
-                        <span>10 min ago</span>
                     </div>
-                    <div class="server-item">
-                        <div class="server-name">
-                            <div class="status-indicator online"></div>
-                            <span>Backup Completed</span>
-                        </div>
-                        <span>2 hours ago</span>
+                    <div class="testimonial-text">
+                        Prashanth was an invaluable member of our technical support team. His expertise in incident management and system monitoring significantly improved our response times and reduced downtime. His ability to troubleshoot complex issues and collaborate across teams made him a go-to resource for challenging technical problems.
                     </div>
-                    <div class="server-item">
-                        <div class="server-name">
-                            <div class="status-indicator warning"></div>
-                            <span>CPU Spike Detected</span>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-company">
+                            <i class="fas fa-building"></i>
+                            <span>Stakelogic Live</span>
                         </div>
-                        <span>5 hours ago</span>
+                        <div class="testimonial-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>Jun 2023 - Jul 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in delay-2">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Manager" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <div class="testimonial-author">Future Focus Management</div>
+                            <div class="testimonial-role">IT Manager</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        Prashanth demonstrated exceptional technical expertise and professionalism during his tenure. His ability to resolve complex IT issues and improve system efficiency contributed significantly to our operational success. He would be a valuable asset to any organization.
+                    </div>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-company">
+                            <i class="fas fa-building"></i>
+                            <span>Future Focus Ltd</span>
+                        </div>
+                        <div class="testimonial-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>Jul 2020 - Sep 2021</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>prashanthche@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9940627357</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Availability</h3>
+                            <p>Open to new opportunities</p>
+                        </div>
+                    </div>
+                </div>
+             <div class="contact-form">
+  <form id="contactForm">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="user_name" class="form-control" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="user_email" class="form-control" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
+    </div>
+    <button type="submit" class="btn">Send Message</button>
+    <p id="status" style="margin-top:10px; color:green;"></p>
+  </form>
+</div>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init('vBtxAtOHeBuHHM9oq'); // Replace with your EmailJS Public Key
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('status');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_apfzjl6', 'AutoResponse_tphc1vj', this)
+      .then(() => {
+        status.innerText = "Message sent successfully!";
+        form.reset();
+      }, (err) => {
+        status.innerText = "Failed to send message. Please try again.";
+        console.error(err);
+      });
+  });
+</script>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/prashanthche" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="mailto:prashanthche@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+919940627357" class="social-link"><i class="fas fa-phone"></i></a>
+            </div>
+            <p class="copyright">© 2025 Prashanth Sankar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // Chart configuration
-        const chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'top',
-                    labels: {
-                        color: '#cbd5e1',
-                        font: {
-                            size: 11
+        // Simple JavaScript for mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+           
+            // Animation on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+
+            // Dashboard Charts
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: '#cbd5e1',
+                            font: {
+                                size: 11
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#cbd5e1'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#cbd5e1'
                         }
                     }
                 }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    },
-                    ticks: {
-                        color: '#cbd5e1'
-                    }
-                },
-                x: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    },
-                    ticks: {
-                        color: '#cbd5e1'
-                    }
+            };
+
+            // Generate time labels for the last 24 hours
+            const generateTimeLabels = () => {
+                const labels = [];
+                for (let i = 23; i >= 0; i--) {
+                    const time = new Date();
+                    time.setHours(time.getHours() - i);
+                    labels.push(time.getHours() + ':00');
                 }
-            }
-        };
+                return labels;
+            };
 
-        // Generate time labels for the last 24 hours
-        const generateTimeLabels = () => {
-            const labels = [];
-            for (let i = 23; i >= 0; i--) {
-                const time = new Date();
-                time.setHours(time.getHours() - i);
-                labels.push(time.getHours() + ':00');
-            }
-            return labels;
-        };
+            // Generate random data for charts
+            const generateData = (length, min, max) => {
+                return Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+            };
 
-        // Generate random data for charts
-        const generateData = (length, min, max) => {
-            return Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
-        };
-
-        // Initialize charts
-        window.onload = function() {
+            // Initialize charts
             const timeLabels = generateTimeLabels();
             
             // System Uptime Chart
@@ -2475,6 +2550,7 @@
                 },
                 options: chartOptions
             });
+
             // Memory Usage Chart
             new Chart(document.getElementById('memoryChart').getContext('2d'), {
                 type: 'line',
@@ -2523,7 +2599,7 @@
                 options: chartOptions
             });
 
-           // Network Traffic Chart
+            // Network Traffic Chart
             new Chart(document.getElementById('networkChart').getContext('2d'), {
                 type: 'line',
                 data: {
@@ -2549,409 +2625,13 @@
                 },
                 options: chartOptions
             });
-
-            // Vindral Live Stream Chart
-            new Chart(document.getElementById('websiteChart').getContext('2d'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['GitHub Pages', 'DNS Resolution', 'SSL Certificate'],
-                    datasets: [{
-                        data: [100, 99.95, 100],
-                        backgroundColor: [
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(59, 130, 246, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ],
-                        borderColor: '#1e293b',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#cbd5e1',
-                                font: {
-                                    size: 12
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        };
-
-        // Simulate real-time updates
-        setInterval(() => {
-            // In a real application, you would fetch data from an API here
-            console.log("Simulating data refresh...");
-        }, 30000);
-        </script></div>            
-       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="charts.js"></script>
-</body>
-</html>
-
-
-<!-- Testimonials Section -->
-<section id="testimonials"> <div class="container">
-    <div class="section-title"> <h2>Colleague Testimonials</h2> 
-        <p>Professional endorsements from colleagues and clients</p>
-    </div> <div class="testimonials-grid"> <div class="testimonial-card fade-in">
-         <div class="testimonial-header">
-             <img src="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/src/DC1063.jpg" alt="Director" class="testimonial-avatar">
-              <div class="testimonial-author-info"> <div class="testimonial-author">Prosecure Ltd Directorate</div> 
-              <div class="testimonial-role">Director of IT Operations</div> </div> </div> 
-              <div class="testimonial-text"> Prashanth consistently delivered exceptional results under pressure. His troubleshooting skills and ability to quickly learn new systems were impressive. He played a key role in maintaining our 99.9% uptime and was instrumental in our disaster recovery planning. </div> 
-              <div class="testimonial-meta"> <div class="testimonial-company"> <i class="fas fa-building"></i> <span>Prosecure Limited</span> </div> <div class="testimonial-date"> <i class="fas fa-calendar"></i> <span>Sep 2021 - May 2023</span> </div> </div> </div> <div class="testimonial-card fade-in delay-1"> <div class="testimonial-header"> 
-            <img src ="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/src/DC1064.jpg" alt="Team Lead" class="testimonial-avatar"> <div class="testimonial-author-info"> <div class="testimonial-author">Stakelogic Team Lead</div> <div class="testimonial-role">Technical Team Lead</div> </div> </div> <div class="testimonial-text"> Prashanth was an invaluable member of our technical support team. His expertise in incident management and system monitoring significantly improved our response times and reduced downtime. His ability to troubleshoot complex issues and collaborate across teams made him a go-to resource for challenging technical problems. </div>
-             <div class="testimonial-meta"> <div class="testimonial-company"> <i class="fas fa-building"></i> <span>Stakelogic Live</span> </div> <div class="testimonial-date"> <i class="fas fa-calendar"></i> <span>Jun 2023 - Jul 2025</span>
-             </div> </div> </div> <div class="testimonial-card fade-in delay-2"> 
-                <div class="testimonial-header">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Manager" class="testimonial-avatar"> <div class="testimonial-author-info"> <div class="testimonial-author">Future Focus Management</div> 
-                <div class="testimonial-role">IT Manager</div> </div> </div> <div class="testimonial-text"> Prashanth demonstrated exceptional technical expertise and professionalism during his tenure. His ability to resolve complex IT issues and improve system efficiency contributed significantly to our operational success. He would be a valuable asset to any organization. </div>
-                <div class="testimonial-meta"> <div class="testimonial-company"> <i class="fas fa-building"></i> 
-                    <span>Future Focus Ltd</span> </div> <div class="testimonial-date"> <i class="fas fa-calendar"></i> 
-                    <span>Jul 2020 - Sep 2021</span> </div> </div> </div> </div> </div> </section>
-  
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>prashanthche@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+91 9940627357</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Location</h3>
-                            <p>India</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Availability</h3>
-                            <p>Open to new opportunities</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/{your-form-id}" method="POST" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                       <div class="form-group">
-    <label for="subject">Subject</label>
-    <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
-</div>
-
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/prashanthche" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="mailto:prashanthche@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+919940627357" class="social-link"><i class="fas fa-phone"></i></a>
-            </div>
-            <p class="copyright">© 2025 Prashanth Sankar. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Simple JavaScript for mobile navigation toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            
-            hamburger.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-            
-            // Animation on scroll
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-
-            // Form submission handling
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! I will get back to you soon.');
-                    contactForm.reset();
-                });
-            }
-
-            // Create charts with Grafana style
-            const uptimeCtx = document.getElementById('uptimeChart').getContext('2d');
-            const uptimeChart = new Chart(uptimeCtx, {
-                type: 'line',
-                data: {
-                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '23:59'],
-                    datasets: [{
-                        label: 'Uptime %',
-                        data: [99.2, 99.5, 99.1, 99.4, 99.7, 99.95, 99.92],
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                        tension: 0.4,
-                        fill: true,
-                        pointBackgroundColor: '#3b82f6',
-                        pointBorderColor: '#fff',
-                        pointRadius: 3,
-                        pointHoverRadius: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            min: 98,
-                            max: 100,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            const backupCtx = document.getElementById('backupChart').getContext('2d');
-            const backupChart = new Chart(backupCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [{
-                        label: 'Backup Efficiency',
-                        data: [83, 89, 92, 98.7, 97.5, 96.8, 98.2],
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        tension: 0.4,
-                        fill: true,
-                        pointBackgroundColor: '#10b981',
-                        pointBorderColor: '#fff',
-                        pointRadius: 3,
-                        pointHoverRadius: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            min: 80,
-                            max: 100,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            const websiteCtx = document.getElementById('websiteChart').getContext('2d');
-            const websiteChart = new Chart(websiteCtx, {
-                type: 'line',
-                data: {
-                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '23:59'],
-                    datasets: [{
-                        label: 'Website Uptime',
-                        data: [100, 100, 100, 100, 100, 100, 100],
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                        tension: 0.4,
-                        fill: true,
-                        pointBackgroundColor: '#3b82f6',
-                        pointBorderColor: '#fff',
-                        pointRadius: 3,
-                        pointHoverRadius: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            min: 99,
-                            max: 100,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Simulate real-time data updates
+           
+            // Simulate real-time updates
             setInterval(() => {
-                // Update uptime chart
-                const uptimeData = uptimeChart.data.datasets[0].data;
-                const newUptime = Math.min(100, uptimeData[uptimeData.length - 1] + (Math.random() * 0.2 - 0.1));
-                uptimeData.push(newUptime);
-                uptimeData.shift();
-                
-                // Update backup chart
-                const backupData = backupChart.data.datasets[0].data;
-                backupData[3] = Math.min(100, backupData[3] + (Math.random() * 0.5 - 0.25));
-                
-                // Update website chart
-                const websiteData = websiteChart.data.datasets[0].data;
-                websiteData.push(100);
-                websiteData.shift();
-                
-                // Update charts
-                uptimeChart.update();
-                backupChart.update();
-                websiteChart.update('none');
-            }, 5000);
-
-            // Animate charts on scroll
-            const chartObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Start live updates when charts are in view
-                        // (Updates are already running from the setInterval above)
-                        
-                        // Stop observing after animation starts
-                        chartObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            document.querySelectorAll('.chart-container').forEach(container => {
-                chartObserver.observe(container);
-            });
+                // In a real application, you would fetch data from an API here
+                console.log("Simulating data refresh...");
+            }, 30000);
         });
-
-        // Function to send email
-        function sendEmail() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && subject && message) {
-                const mailtoLink = `mailto:prashanthche@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
-                window.location.href = mailtoLink;
-            } else {
-                alert('Please fill in all fields before sending.');
-            }
-        }
     </script>
- <script>
-    window.onload = function() {
-        const profileBox = document.querySelector('.hero-image');
-        const boxWidth = profileBox.offsetWidth;
-        const boxHeight = profileBox.offsetHeight;
-        console.log(`Width: ${boxWidth}px, Height: ${boxHeight}px`);
-    }
-</script>
 </body>
 </html>
