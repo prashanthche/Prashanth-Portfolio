@@ -289,36 +289,43 @@
             margin-bottom: var(--spacing-lg);
             display: block;
         }
+.hero-image {
+  position: relative;
+  width: 375px;            /* Adjust width closer to original aspect ratio */
+  height: 500px;           /* Height adapted to maintain ~0.75 ratio */
+  margin-top: 0.9cm;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
 
-        .hero-image {
-            position: relative;
-            text-align: center;
-            margin-top: 0.9cm; /* push the whole box 0.5cm down */
-        }
+.hero-image img {
+  width: 100%;              /* Fill container width */
+  height: 100%;             /* Fill container height */
+  object-fit: cover;        /* Scale image and crop if necessary */
+  border-radius: var(--border-radius);
+  display: block;
+  margin: 0 auto;
+}
 
-        .hero-image img {
-            width: 370%;
-            height: 400px;              /* fixed height box */
-            max-width: 400px;           /* fixed max width */
-            object-fit: cover;          /* crop to fit nicely */
-            border-radius: var(--border-radius);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            margin: 0 auto;
-            display: block;
-        }
 
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--accent-blue);
-            border-radius: var(--border-radius);
-            z-index: -1;
-            opacity: 0.5;
-        }
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-blue);
+  border-radius: var(--border-radius);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+
 
         /* System Performance Dashboard Section */
         .dashboard {
@@ -1304,7 +1311,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: linear-gradient(45deg, var(--accent-gold), #4b16f9);
+            background: linear-gradient(45deg, var(--accent-blue), #4b16f9);
         }
 
         .btn-download:hover {
@@ -1316,7 +1323,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: linear-gradient(45deg, var(--accent-gold), #4b16f9);
+            background: linear-gradient(45deg, var(--accent-blue), #4b16f9);
         }
 
         .btn-download:hover {
