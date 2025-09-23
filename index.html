@@ -50,6 +50,113 @@
             padding: 0 var(--spacing-md);
         }
 
+        /* === CORPORATE LOGO STYLES === */
+        .corporate-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-top: -0.1cm;
+            transition: all 0.25s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+
+        .corporate-logo:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Corporate Logo Icon */
+        .corporate-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .corporate-icon svg {
+            width: 36px;
+            height: 36px;
+            transition: transform 0.2s ease;
+        }
+
+        .corporate-logo:hover .corporate-icon svg {
+            transform: scale(1.05);
+        }
+
+        /* Corporate Text Group */
+        .corporate-text-group {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .corporate-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+            margin-bottom: 2px;
+        }
+
+        .corporate-title {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .corporate-accent {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-blue);
+            border-radius: 1px;
+            margin-top: 4px;
+            transition: width 0.2s ease;
+        }
+
+        .corporate-logo:hover .corporate-accent {
+            width: 28px;
+        }
+
+
+        /* Footer Logo - Even More Subtle */
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Inter", sans-serif;
+            justify-content: center;
+            padding: 12px 18px;
+            margin: 0 auto 20px auto;
+            max-width: 240px;
+        }
+
+        .footer-logo .corporate-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .footer-logo .corporate-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-logo .corporate-title {
+            font-size: 0.7rem;
+        }
+
+        .footer-logo .corporate-accent {
+            width: 20px;
+            height: 1.5px;
+        }
+
+        /* Rest of your existing CSS remains exactly the same */
         section {
             padding: var(--spacing-xl) 0;
             scroll-margin-top: 80px;
@@ -105,11 +212,12 @@
 
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 5px 16px;
             background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
             color: white;
-            border-radius: 30px;
+            border-radius: 20px;
             font-weight: 600;
+            font-size: 0.9rem; /* smaller font size */
             transition: var(--transition);
             border: none;
             cursor: pointer;
@@ -118,7 +226,7 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+             box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
             color: white;
         }
 
@@ -182,16 +290,6 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .logo span {
-            color: var(--accent-blue);
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
@@ -226,23 +324,139 @@
             display: none;
             cursor: pointer;
         }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
+/* === UPDATED TOP SECTION STYLES === */
+        /* Attractive Logo Design */
+        .corporate-logo {
             display: flex;
             align-items: center;
-            padding-top: 80px;
+            gap: 12px;
+            font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
+            padding: 10px 16px;
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .corporate-logo:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(16, 185, 129, 0.1));
+            border-color: rgba(37, 99, 235, 0.4);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+        }
+
+        .corporate-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .corporate-icon svg {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .corporate-logo:hover .corporate-icon svg {
+            transform: scale(1.1);
+            filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.4));
+        }
+
+        .corporate-text-group {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .corporate-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.3px;
+            margin-bottom: 2px;
+        }
+
+        .corporate-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .corporate-accent {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: linear-gradient(90deg, #2563eb, #10b981);
+            border-radius: 2px;
+            margin-top: 4px;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
+        .corporate-accent::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .corporate-logo:hover .corporate-accent {
+            width: 35px;
+            background: linear-gradient(90deg, #1d4ed8, #0d9488);
+        }
+
+        /* Top-left fixed logo */
+        .ds-top-logo {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+        }
+
+        .ds-top-logo .corporate-logo {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        
+       /* Hero Section */
+        .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 90px;
+    position: relative;
+    overflow: hidden;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+}
+
+
         #profile-image {
-            width: 100%;         /* fills the box width */
-            height: 100%;        /* fills the box height */
+            width: 98%;         /* fills the box width */
+            height: 98.5%;        /* fills the box height */
             object-fit: cover;   /* keeps the aspect ratio, crops overflow */
             position: relative;
-            top: -0.5cm;         /* moves image up inside the box */
+            top: 0.01cm;         /* moves image up inside the box */
         }
 
         .hero::before {
@@ -291,40 +505,90 @@
         }
 .hero-image {
   position: relative;
-  width: 375px;            /* Adjust width closer to original aspect ratio */
-  height: 500px;           /* Height adapted to maintain ~0.75 ratio */
-  margin-top: 0.9cm;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1/1.075;
+  margin: 2.5rem auto 0 auto;
+  border-radius: 22px;
   overflow: hidden;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.23);
+  background: #131b2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Adjust position */
+  top: -0.8cm;    /* Move up by 20px */
+  right: -3cm;  /* Move right by 20px */
 }
 
 .hero-image img {
-  width: 100%;              /* Fill container width */
-  height: 100%;             /* Fill container height */
-  object-fit: cover;        /* Scale image and crop if necessary */
-  border-radius: var(--border-radius);
+  width: 100%;               /* Image fills container horizontally */
+  height: 100%;              /* Image fills container vertically */
+  object-fit: cover;         /* Ensures full crop if aspect ratios differ */
+  border-radius: 22px;
   display: block;
-  margin: 0 auto;
 }
 
 
 .hero-image::after {
   content: '';
   position: absolute;
-  top: -20px;
-  right: -20px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid var(--accent-blue);
-  border-radius: var(--border-radius);
-  z-index: -1;
-  opacity: 0.5;
+  border: 3px solid var(--accent-blue, #2563eb); /* Ensure visibility with thicker border */
+  border-radius: 22px;
+  z-index: 1;
+  pointer-events: none;
+  box-sizing: border-box;
+  opacity: 0.4;              /* Subtle but noticeable */
 }
 
+/*Responsive for mobile devices */
+ @media (max-width: 900px) {
+  section.hero .hero-content {
+    display: flex !important;
+    flex-direction: column !important;   /* stack text & image */
+    align-items: flex-end !important;    /* push everything right */
+    text-align: right !important;
+    gap: 20px !important;
+  }
+
+  section.hero .hero-text {
+    width: 100% !important;
+    text-align: right !important;
+  }
+
+  section.hero .hero-cta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+  }
+
+  section.hero .hero-contact-info {
+    text-align: right !important;
+  }
+
+  section.hero .social-links {
+    justify-content: flex-end !important;
+  }
+
+  section.hero .hero-image {
+    width: 70% !important;               
+    max-width: 320px !important;
+    margin: 0 0 0 auto !important;       /* push image right */
+    display: block !important;
+  }
+
+  section.hero .hero-image img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+}
 
 
         /* System Performance Dashboard Section */
@@ -486,7 +750,7 @@
             align-items: center;
         }
 
-        /* About Section */
+ /* About Section */
         .about-content { 
             display: grid;
             grid-template-columns: 1.2fr 1fr; /* left side wider */
@@ -556,7 +820,7 @@
 
         /* Bullet list */
         .achievement-list {
-            list-style: none;
+            list-style: var(--accent-green);
             padding: 0;
             margin: 0;
         }
@@ -578,100 +842,374 @@
             font-weight: bold;
         }
 
-        /* NEW: Skills Section Redesign */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
-        }
+/* Responsive */
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    .about-stats {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+/* ================================
+   About Section Title
+================================ */
+.about-section .section-title {
+    text-align: center;   /* center heading + subtitle */
+    margin-bottom: 2rem;
+    display: block;       /* avoid flex conflict */
+}
 
-        .skill-category {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
-            background: linear-gradient(145deg, #1e293b, #1a2436);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-            height: 100%;
-        }
+.about-section .section-title h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff; /* white text */
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
 
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
+.about-section .section-title h2:hover {
+    transform: translateY(-4px);
+    color: var(--accent-blue);
+}
 
-        .skill-category h3 {
+.about-section .section-title .subtitle {
+    font-size: 1.1rem;
+    color: #ffffff;
+    opacity: 0.9;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-section .section-title .subtitle:hover {
+    transform: scale(1.05);
+    color: var(--accent-green);
+}
+
+ 
+/* Skills Section - Consolidated Styles */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.skill-category {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    background: linear-gradient(145deg, #1e293b, #1a2436);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category h3 {
+    color: var(--accent-green);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.skill-category h3 i {
+    position: relative;
+    color: #f8faf8;
+    margin-right: var(--spacing-sm);
+    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2563eb, #4b16f9);
+    border-radius: 50%;
+    padding: 6px;
+    box-shadow: 0 0 12px rgba(75, 22, 249, 0.35);
+    overflow: visible; /* make sure glow shows outside */
+}
+
+/* Technical Skills Heading */
+.section-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff; /* default white */
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
+    
+    /* Entrance animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+/* Hover state */
+.section-title h2:hover {
+    color: var(--accent-blue); /* corporate blue */
+    transform: translateY(-3px);
+    letter-spacing: 1.5px; /* smooth spacing */
+}
+
+/* Animated underline effect */
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+    transition: width 0.35s ease;
+    border-radius: 2px;
+}
+
+.section-title h2:hover::after {
+    width: 100%;
+}
+
+/* Keyframes for entrance */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*Icon Color */
+
+.skill-category h3 i {
+    position: relative;
+    color: #178852;
+    margin-right: var(--spacing-sm);
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2563eb, #4b16f9); /* Galaxy base */
+    border-radius: 50%;
+    padding: 6px;
+    box-shadow: 0 0 12px rgba(75, 22, 249, 0.35);
+    overflow: visible;
+}
+
+/* Outer Orbit Glow (Blue/Violet) */
+.skill-category h3 i::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(75, 22, 249, 0.35), transparent 70%);
+    animation: pulseRing 3s ease-in-out infinite;
+    z-index: -1;
+}
+.skill-category h3 {
             color: var(--accent-green);
             margin-bottom: var(--spacing-md);
             display: flex;
             align-items: center;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
+/* Icon Change glow */ 
+.skill-category h3 {
+    font-size: 1.1rem; /* Reduced text size for cleaner balance */
+    font-weight: 600;
+    color: #e5e7eb; /* soft white for deep space feel */
+    display: flex;
+    align-items: center;
+}
 
-        .skill-category h3 i {
-            margin-right: var(--spacing-sm);
-            font-size: 1.5rem;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 50%;
-            padding: 5px;
-        }
+.skill-category h3 i {
+    position: relative;
+    color: #ffffff;
+    margin-right: var(--spacing-sm);
+    font-size: 1.3rem; /* Slightly smaller icon to balance text */
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .skill-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: var(--spacing-sm);
-        }
+    /* Deep space background */
+    background: linear-gradient(145deg, #0f172a, #1e293b, #2563eb);
+    border-radius: 50%;
+    padding: 6px;
 
-        .skill-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 12px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            transition: var(--transition);
-            min-height: 90px;
-            position: relative;
-            overflow: hidden;
-        }
+    /* Glow + depth */
+    box-shadow:
+        0 0 12px rgba(37, 99, 235, 0.4),
+        0 0 20px rgba(75, 22, 249, 0.3),
+        inset 0 2px 6px rgba(255, 255, 255, 0.08);
+    overflow: visible;
+    transition: all 0.3s ease;
+}
 
-        .skill-item:hover {
-            background: linear-gradient(145deg, var(--accent-blue), var(--accent-green));
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-        }
+/* Subtle hover lift */
+.skill-category h3 i:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 16px rgba(37, 99, 235, 0.55),
+        0 0 24px rgba(75, 22, 249, 0.45),
+        inset 0 3px 8px rgba(255, 255, 255, 0.1);
+}
 
-        .skill-item:hover i {
-            color: white;
-            transform: scale(1.2);
-        }
+/* ✨ Star Sparkle Effect */
+.skill-category h3 i::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #ffffff 40%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 3s infinite ease-in-out;
+}
 
-        .skill-item:hover .skill-name {
-            color: white;
-        }
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.6); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
 
-        .skill-item i {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            color: var(--accent-gold);
-            transition: var(--transition);
-        }
+/* Skill Items Grid */
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--spacing-sm);
+}
 
-        .skill-name {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            transition: var(--transition);
-            font-weight: 500;
-        }
+.skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: var(--transition);
+    min-height: 90px;
+    position: relative;
+    overflow: hidden;
+}
 
+.skill-item:hover {
+    background: linear-gradient(145deg, var(--accent-blue), var(--accent-green));
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.skill-item:hover i {
+    color: white;
+    transform: scale(1.2);
+}
+
+.skill-item:hover .skill-name {
+    color: white;
+}
+
+.skill-item i {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--accent-gold);
+    transition: var(--transition);
+}
+
+.skill-name {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+/* ================================
+   Release Tools Section - Vertical Layout
+================================ */
+.release-tools-card {
+    background: #232939;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 7px 32px rgba(50, 70, 120, 0.11);
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #22d3a1;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Vertical stacked tools list */
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;   /* single column */
+    gap: 15px;                    /* spacing between items */
+}
+
+.tool-item {
+    display: flex;
+    flex-direction: row;          /* icon + text side by side */
+    align-items: center;          /* vertical centering */
+    justify-content: flex-start;
+    background: #1a202e;
+    border-radius: 10px;
+    color: #fbbf24;
+    font-weight: 500;
+    min-height: 60px;
+    box-shadow: 0 3px 10px 0 rgba(43, 70, 130, 0.1);
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    gap: 12px;                    /* spacing between icon + text */
+}
+
+.tool-item i {
+    font-size: 1.5rem;
+    color: #fbbf24;
+    width: 28px;                  /* fixed width for alignment */
+    flex-shrink: 0;               /* prevents icon from shrinking */
+    text-align: center;
+}
+
+.tool-item span {
+    font-size: 0.95rem;
+    color: #fbbf24;
+    line-height: 1.4;             /* smoother text spacing */
+}
+
+/* Hover effects */
+.tool-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.2);
+    background: #1e2638;
+}
+
+.tool-item:hover i {
+    transform: scale(1.1);
+}
         /* Experience Section */
         .timeline {
             position: relative;
@@ -749,7 +1287,7 @@
             left: -10px;
         }
 
-        /* NEW: Testimonials Section - Corporate Style */
+        /* Testimonials Section - Corporate Style */
         .testimonials-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -917,7 +1455,34 @@
             min-height: 150px;
             resize: vertical;
         }
+        /* Enhanced Social Links */
+        .social-links-large {
+            display: flex;
+            gap: 12px;
+            margin: 1.2rem 0;
+        }
 
+        .social-link-large {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+                    }
+
+        .social-link-large:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            color: white;
+        }
+       
         /* Footer */
         footer {
             background-color: #0a0f1d;
@@ -957,23 +1522,7 @@
             font-size: 0.9rem;
         }
 
-        /* NEW: Google Server Status */
-        .google-status {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 15px;
-            border-radius: 30px;
-            margin-top: var(--spacing-md);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .google-status-text {
-            margin-left: 10px;
-            font-size: 0.9rem;
-        }
-
-        /* NEW: Real-time indicator */
+        /* Real-time indicator */
         .real-time-indicator {
             display: inline-block;
             width: 12px;
@@ -985,7 +1534,7 @@
             animation: pulse 2s infinite;
         }
 
-        /* NEW: Certification Section */
+        /* Certification Section */
         .certifications-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1032,7 +1581,7 @@
             font-size: 0.9rem;
         }
 
-        /* NEW: Education Section */
+        /* Education Section */
         .education-item {
             display: flex;
             margin-bottom: var(--spacing-lg);
@@ -1305,30 +1854,47 @@
             font-size: 0.75rem;
             font-weight: 700;
         }
-   /* Download Resume Button */
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(45deg, var(--accent-blue), #4b16f9);
-        }
 
-        .btn-download:hover {
-            background: linear-gradient(45deg, #3b82f6, var(--accent-blue));
-        }
-         /* Download Cover Letter Button */
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(45deg, var(--accent-blue), #4b16f9);
-        }
+        /* Download Buttons (Resume + Cover Letter) */
+       .btn-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;                /* slightly smaller gap */
+    background: transparent;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+    padding: 8px 18px;        /* slightly smaller padding */
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.8rem;        /* slight font size for consistency */
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
 
-        .btn-download:hover {
-            background: linear-gradient(45deg, #3b82f6, var(--accent-blue));
+.btn-download:hover {
+    background: #3b82f6;
+    color: #fff;
+}
+
+        /* Popup notification */
+        #popupStatus {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            z-index: 1000;
         }
+        #popupStatus.success { background-color: #4CAF50; }
+        #popupStatus.error { background-color: #f44336; }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             h1 {
@@ -1433,9 +1999,27 @@
                 width: 100%;
                 justify-content: space-between;
             }
-        }
 
-        @media (max-width: 600px) {
+            /* Adjust logo for mobile */
+            .corporate-logo {
+                padding: 6px 12px;
+                gap: 8px;
+            }
+
+            .corporate-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .corporate-name {
+                font-size: 1.1rem;
+            }
+
+            .corporate-title {
+                font-size: 0.65rem;
+            }
+        }
+         @media (max-width: 600px) {
             .about-stats {
                 grid-template-columns: 1fr;
                 gap: var(--spacing-sm);
@@ -1451,12 +2035,28 @@
         }
     </style>
 </head>
-<body>
+<body>    
     <!-- Header & Navigation -->
-    <header>
+    <header>  
         <div class="container">
             <nav>
-                <div class="logo">Prashanth<span>Sankar</span></div>
+                <!-- Corporate Header Logo -->
+                <a href="#" class="corporate-logo">
+                    <span class="corporate-icon">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="14" fill="#3b82f6"/>
+                            <circle cx="16" cy="16" r="14.5" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/>
+                            <text x="16" y="20" text-anchor="middle" font-size="10" fill="white" 
+                                  font-family="Inter, sans-serif" font-weight="600">P</text>
+                        </svg>
+                    </span>
+                    <div class="corporate-text-group">
+                        <span class="corporate-name">Prashanth</span>
+                        <span class="corporate-title">IT Specialist</span>
+                        <span class="corporate-accent"></span>
+                    </div>
+                </a>
+
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#dashboard">Dashboard</a></li>
@@ -1473,7 +2073,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+<!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -1482,43 +2082,59 @@
                     <span class="title">IT Infrastructure & Technical Support Specialist</span>
                     <p>Transforming complex IT challenges into seamless solutions with 8+ years of international expertise in Windows, VMware, and Active Directory environments.</p>
                     <div class="hero-cta">
-    <a href="#contact" class="btn">Get In Touch</a>
-    <a href="#dashboard" class="btn btn-outline" id="viewDashboardBtn">View Dashboard</a>
-   <!-- Download Resume Button -->
-<a href="#" class="btn btn-download" id="downloadResumeBtn">
-    <i class="fas fa-download"></i> Download My Resume
-</a>
-<a href="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/Cover%20Letter%20Prashanth%20Sankar.pdf" 
-   class="btn btn-outline" 
-   download="Cover_Letter_Prashanth_Sankar.pdf" 
-   style="margin-left: 12px;">Download Cover Letter</a>
-<script>
-    document.getElementById("downloadResumeBtn").addEventListener("click", function (e) {
-        e.preventDefault();
-        const link = document.createElement("a");
-        link.href = "https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/Resume_Prashanth_Sankar_Updated.pdf";
-        link.download = "Prashanth_Sankar_Resume.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    });
-</script>
-</div>
-                    <div class="hero-contact-info" style="margin-top: var(--spacing-md);">
-                        <p>
-                            <i class="fas fa-phone"></i> +919940627357 | 
-                            <i class="fas fa-envelope"></i> prashanthche@gmail.com | 
-                            <i class="fas fa-map-marker-alt"></i> India
-                        </p>
-                        <div class="social-links" style="justify-content: flex-start; margin-top: var(--spacing-sm);">
-                            <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link" style="width: 40px; height: 40px;">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/prashanthche" class="social-link" style="width: 40px; height: 40px;">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>                   
+                        <a href="#contact" class="btn">Get In Touch</a>
+                        <a href="#dashboard" class="btn btn-outline" id="viewDashboardBtn">View Dashboard</a>
+                        <!-- Download Resume Button -->
+                        <a href="#" class="btn btn-download" id="downloadResumeBtn">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+
+                        <!-- Download Cover Letter Button -->
+                        <a href="#" class="btn btn-download" id="downloadCoverBtn">
+                            <i class="fas fa-download"></i> Download Cover Letter
+                        </a>
+
+                        <script>
+                            // Resume download
+                            document.getElementById("downloadResumeBtn").addEventListener("click", function (e) {
+                                e.preventDefault();
+                                const link = document.createElement("a");
+                                link.href = "https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/Resume_Prashanth_Sankar_Updated.pdf";
+                                link.download = "Prashanth_Sankar_Resume.pdf";
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            });
+
+                            // Cover letter download
+                            document.getElementById("downloadCoverBtn").addEventListener("click", function (e) {
+                                e.preventDefault();
+                                const link = document.createElement("a");
+                                link.href = "https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/Cover%20Letter%20Prashanth%20Sankar.pdf";
+                                link.download = "Cover_Letter_Prashanth_Sankar.pdf";
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            });
+                        </script>
+
+                        <div class="hero-contact-info" style="margin-top: var(--spacing-md);">
+                            <p>
+                                <i class="fas fa-phone"></i> +919940627357 | 
+                                <i class="fas fa-envelope"></i> prashanthche@gmail.com | 
+                                <i class="fas fa-map-marker-alt"></i> India
+                            </p>
+                            <div class="social-links" style="justify-content: flex-start; margin-top: var(--spacing-sm);">
+                                <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link" style="width: 40px; height: 40px;">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/prashanthche" class="social-link" style="width: 40px; height: 40px;">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://wa.me/919940627357" class="social-link"  style="width: 40px; height: 40px;"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>                   
+                    </div>
                 </div>
                 <div class="hero-image fade-in delay-1">
                     <img id="profile-image" src="https://raw.githubusercontent.com/prashanthche/Prashanth-Portfolio/main/DSC_1081%20(2).jpg" alt="Prashanth Sankar - IT Support Specialist">
@@ -1527,17 +2143,17 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <!-- Section Title -->
-            <div class="section-title">
-                <h2>About Me</h2>
-                <p class="subtitle">Transforming IT challenges into seamless solutions</p>
-            </div>
+ <!-- About Section -->
+<section id="about" class="about-section">
+  <div class="container">
+    <!-- Section Title -->
+    <div class="section-title">
+      <h2>About Me</h2>
+      <p class="subtitle">Transforming IT challenges into seamless solutions</p>
+    </div>
 
-            <div class="about-content">
-                <!-- Left Content -->
+    <!-- About Content Wrapper -->
+   <div class="about-content">
                 <div class="about-text">
                     <p>
                         IT Infrastructure & Support Specialist with 
@@ -1552,7 +2168,6 @@
                         <strong>Technical Support Specialist</strong> role.
                     </p>
 
-                    <!-- Stats -->
                     <div class="about-stats">
                         <div class="stat">
                             <div class="stat-number">8+</div>
@@ -1569,7 +2184,6 @@
                     </div>
                 </div>
 
-                <!-- Right Content (Card Style) -->
                 <div class="about-image">
                     <div class="card expertise-card">
                         <h3>My Expertise</h3>
@@ -1587,250 +2201,137 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <div class="section-title">
-                <h2>Technical Skills</h2>
-                <p>Hover over each skill to see more details</p>
-            </div>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-server"></i> System Administration</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fab fa-windows"></i>
-                            <span class="skill-name">Windows Server</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-network-wired"></i>
-                            <span class="skill-name">Active Directory</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span class="skill-name">SQL Server</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-cloud"></i>
-                            <span class="skill-name">Azure AD</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-sync"></i>
-                            <span class="skill-name">PowerShell</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-hdd"></i>
-                            <span class="skill-name">Hyper-V & VMware</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> Monitoring & Analytics</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fas fa-search"></i>
-                            <span class="skill-name">Kibana</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <span class="skill-name">Splunk</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span class="skill-name">Dynatrace</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-bug"></i>
-                            <span class="skill-name">Root Cause Analysis</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-desktop"></i>
-                            <span class="skill-name">Performance Monitoring</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-bell"></i>
-                            <span class="skill-name">Alert Management</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Development & Scripting</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fas fa-terminal"></i>
-                            <span class="skill-name">Bash Scripting</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span class="skill-name">Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span class="skill-name">HTML/CSS</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js"></i>
-                            <span class="skill-name">JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-cube"></i>
-                            <span class="skill-name">Automation</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span class="skill-name">SQL Querying</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> IT Support & Tools</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fas fa-ticket-alt"></i>
-                            <span class="skill-name">Jira</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-trello"></i>
-                            <span class="skill-name">Trello</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-github"></i>
-                            <span class="skill-name">GitHub</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span class="skill-name">ITIL Framework</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-sync-alt"></i>
-                            <span class="skill-name">Change Management</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-book"></i>
-                            <span class="skill-name">Knowledge Base</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Additional Skills -->
-                <div class="skill-category">
-                    <h3><i class="fas fa-exclamation-circle"></i> Issue Escalation & RCA</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fas fa-search-plus"></i>
-                            <span class="skill-name">Kibana Log Analysis</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <span class="skill-name">Splunk Monitoring</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-bug"></i>
-                            <span class="skill-name">Root Cause Analysis</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-bell"></i>
-                            <span class="skill-name">Alert Management</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span class="skill-name">Dynatrace Dashboards</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span class="skill-name">Grafana Visualization</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-cogs"></i> Advanced Technical Skills</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span class="skill-name">SQL & MySQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-github"></i>
-                            <span class="skill-name">GitHub</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-vial"></i>
-                            <span class="skill-name">QA Testing</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-desktop"></i>
-                            <span class="skill-name">Remote Desktop</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-terminal"></i>
-                            <span class="skill-name">Bash & PowerShell</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-network-wired"></i>
-                            <span class="skill-name">IT Infrastructure</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-shield-alt"></i> Security & Administration</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fas fa-users"></i>
-                            <span class="skill-name">Active Directory</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-server"></i>
-                            <span class="skill-name">Hyper-V & VMware</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-certificate"></i>
-                            <span class="skill-name">ITIL Foundation</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-network-wired"></i>
-                            <span class="skill-name">Networking Basics</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-office-building"></i>
-                            <span class="skill-name">Office 365</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-exchange-alt"></i>
-                            <span class="skill-name">Change Management</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-wrench"></i> Specialized Skills</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <i class="fas fa-file-alt"></i>
-                            <span class="skill-name">Knowledge Base Docs</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-cloud-download-alt"></i>
-                            <span class="skill-name">Backup & Recovery</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-shield-virus"></i>
-                            <span class="skill-name">Endpoint Security</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-linux"></i>
-                            <span class="skill-name">Linux Administration</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-headset"></i>
-                            <span class="skill-name">Customer Service</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-door-open"></i>
-                            <span class="skill-name">Access Control Systems</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- Skills Section -->
+<section id="skills">
+  <div class="container">
+    <!-- Section Heading -->
+    <div class="section-title">
+      <h2>Technical Skills</h2>
+      </div>
+
+    <!-- Skills Container -->
+    <div class="skills-container">
+
+      <!-- 1. System Administration -->
+      <div class="skill-category">
+        <h3><i class="fas fa-server"></i> System Administration</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fab fa-windows"></i><span class="skill-name">Windows Server</span></div>
+          <div class="skill-item"><i class="fas fa-network-wired"></i><span class="skill-name">Patch Management</span></div>
+          <div class="skill-item"><i class="fas fa-database"></i><span class="skill-name">SQL Server</span></div>
+          <div class="skill-item"><i class="fas fa-cloud"></i><span class="skill-name">Azure AD</span></div>
+          <div class="skill-item"><i class="fas fa-sync"></i><span class="skill-name">PowerShell</span></div>
+          <div class="skill-item"><i class="fas fa-hdd"></i><span class="skill-name">Hyper-V & VMware</span></div>
         </div>
-    </section>
+      </div>
+
+      <!-- 2. Monitoring & Analytics -->
+      <div class="skill-category">
+        <h3><i class="fas fa-chart-line"></i> Monitoring & Analytics</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fas fa-search"></i><span class="skill-name">Kibana</span></div>
+          <div class="skill-item"><i class="fas fa-chart-bar"></i><span class="skill-name">Splunk</span></div>
+          <div class="skill-item"><i class="fas fa-tachometer-alt"></i><span class="skill-name">Dynatrace</span></div>
+          <div class="skill-item"><i class="fas fa-bug"></i><span class="skill-name">Root Cause Analysis</span></div>
+          <div class="skill-item"><i class="fas fa-desktop"></i><span class="skill-name">Performance Monitoring</span></div>
+          <div class="skill-item"><i class="fas fa-bell"></i><span class="skill-name">Alert Management</span></div>
+        </div>
+      </div>
+
+      <!-- 3. Development & Scripting -->
+      <div class="skill-category">
+        <h3><i class="fas fa-code"></i> Scripting & Automation</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fas fa-terminal"></i><span class="skill-name">Bash Scripting</span></div>
+          <div class="skill-item"><i class="fab fa-python"></i><span class="skill-name">Python</span></div>
+          <div class="skill-item"><i class="fas fa-code"></i><span class="skill-name">HTML/CSS</span></div>
+          <div class="skill-item"><i class="fab fa-js"></i><span class="skill-name">JavaScript</span></div>
+          <div class="skill-item"><i class="fas fa-cube"></i><span class="skill-name">Automation</span></div>
+          <div class="skill-item"><i class="fas fa-database"></i><span class="skill-name">SQL Querying</span></div>
+        </div>
+      </div>
+
+      <!-- 4. IT Support & Tools -->
+      <div class="skill-category">
+        <h3><i class="fas fa-tools"></i> IT Support & Tools</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fas fa-ticket-alt"></i><span class="skill-name">Jira</span></div>
+          <div class="skill-item"><i class="fab fa-trello"></i><span class="skill-name">Trello</span></div>
+          <div class="skill-item"><i class="fab fa-github"></i><span class="skill-name">GitHub</span></div>
+          <div class="skill-item"><i class="fas fa-shield-alt"></i><span class="skill-name">ITIL Framework</span></div>
+          <div class="skill-item"><i class="fas fa-sync-alt"></i><span class="skill-name">Change Management</span></div>
+          <div class="skill-item"><i class="fas fa-book"></i><span class="skill-name">Knowledge Base</span></div>
+        </div>
+      </div>
+
+      <!-- 5. Issue Escalation & RCA -->
+      <div class="skill-category">
+        <h3><i class="fas fa-exclamation-circle"></i> Issue Escalation & RCA</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fas fa-search-plus"></i><span class="skill-name">Kibana Log Analysis</span></div>
+          <div class="skill-item"><i class="fas fa-chart-bar"></i><span class="skill-name">Splunk Monitoring</span></div>
+          <div class="skill-item"><i class="fas fa-bug"></i><span class="skill-name">Root Cause Analysis</span></div>
+          <div class="skill-item"><i class="fas fa-bell"></i><span class="skill-name">Alert Management</span></div>
+          <div class="skill-item"><i class="fas fa-tachometer-alt"></i><span class="skill-name">Dynatrace Dashboards</span></div>
+          <div class="skill-item"><i class="fas fa-chart-line"></i><span class="skill-name">Grafana Visualization</span></div>
+        </div>
+      </div>
+
+      <!-- 6. Advanced Technical Skills -->
+      <div class="skill-category">
+        <h3><i class="fas fa-cogs"></i> IT & Support Skills</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fas fa-database"></i><span class="skill-name">SQL & MySQL</span></div>
+          <div class="skill-item"><i class="fab fa-github"></i><span class="skill-name">GitHub</span></div>
+          <div class="skill-item"><i class="fas fa-vial"></i><span class="skill-name">QA Testing</span></div>
+          <div class="skill-item"><i class="fas fa-desktop"></i><span class="skill-name">Remote Desktop</span></div>
+          <div class="skill-item"><i class="fas fa-terminal"></i><span class="skill-name">Bash & PowerShell</span></div>
+          <div class="skill-item"><i class="fas fa-network-wired"></i><span class="skill-name">IT Infrastructure</span></div>
+        </div>
+      </div>
+
+      <!-- 7. Security & Administration -->
+<div class="skill-category">
+  <h3><i class="fas fa-shield-alt"></i> Security & Administration</h3>
+  <div class="skill-list">
+    <div class="skill-item"><i class="fas fa-users"></i><span class="skill-name">Active Directory</span></div>
+    <div class="skill-item"><i class="fas fa-server"></i><span class="skill-name">Hyper-V & VMware</span></div>
+    <div class="skill-item"><i class="fas fa-certificate"></i><span class="skill-name">ITIL Foundation</span></div>
+    <div class="skill-item"><i class="fas fa-network-wired"></i><span class="skill-name">Networking Basics</span></div>
+    <div class="skill-item"><i class="fas fa-building"></i><span class="skill-name">Office 365</span></div>
+    <div class="skill-item"><i class="fas fa-exchange-alt"></i><span class="skill-name">Change Management</span></div>
+  </div>
+</div>
+
+      <!-- 8. Release Scope & Tools -->
+      <div class="skill-category">
+        <h3><i class="fas fa-rocket"></i> Release Scope & Tools</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fas fa-code-branch"></i><span class="skill-name">Release Scope</span></div>
+          <div class="skill-item"><i class="fas fa-cloud"></i><span class="skill-name">Postman API</span></div>
+          <div class="skill-item"><i class="fas fa-broadcast-tower"></i><span class="skill-name">Vindral Stream Monitoring</span></div>
+          <div class="skill-item"><i class="fas fa-tools"></i><span class="skill-name">Hardware Diagnostics</span></div>
+          <div class="skill-item"><i class="fas fa-server"></i><span class="skill-name">System Deployment</span></div>
+          <div class="skill-item"><i class="fas fa-check-circle"></i><span class="skill-name">Quality Assurance</span></div>
+        </div>
+      </div>
+
+      <!-- 9. Specialized Skills -->
+      <div class="skill-category">
+        <h3><i class="fas fa-wrench"></i> Specialized Skills</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fas fa-file-alt"></i><span class="skill-name">Knowledge Base Docs</span></div>
+          <div class="skill-item"><i class="fas fa-cloud-download-alt"></i><span class="skill-name">Backup & Recovery</span></div>
+          <div class="skill-item"><i class="fas fa-shield-virus"></i><span class="skill-name">Endpoint Security</span></div>
+          <div class="skill-item"><i class="fab fa-linux"></i><span class="skill-name">Linux Administration</span></div>
+          <div class="skill-item"><i class="fas fa-headset"></i><span class="skill-name">Customer Service</span></div>
+          <div class="skill-item"><i class="fas fa-door-open"></i><span class="skill-name">Access Control Systems</span></div>
+        </div>
+      </div>
+
+    </div> <!-- END .skills-container -->
+  </div>
+</section>
 
     <!-- Experience Section -->
     <section id="experience">
@@ -2072,12 +2573,7 @@
                     <h1>System Performance Dashboard</h1>
                     <p>Live monitoring of key infrastructure metrics</p>
                 </div>
-                <div class="controls">
-                    <button class="control-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
-                    <button class="control-btn"><i class="fas fa-cog"></i> Settings</button>
-                    <button class="control-btn"><i class="fas fa-bell"></i> Alerts</button>
-                </div>
-            </div>
+             </div>
 
             <div class="dashboard-grid">
                 <!-- System Uptime Card -->
@@ -2096,11 +2592,7 @@
                         <div class="status-indicator offline"></div>
                         <span>No downtime recorded</span>
                     </div>
-                    <div class="server-status">
-                        <div class="status-indicator warning"></div>
-                        <span>No downtime recorded</span>
                     </div>
-                </div>
 
                 <!-- CPU Usage Card -->
                 <div class="dashboard-card fade-in">
@@ -2364,87 +2856,54 @@
                         </div>
                     </div>
                 </div>
-         <!-- Contact Section -->
-<section id="contact">
-  <div class="contact-form">
-    <form id="contactForm">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="user_name" class="form-control" placeholder="Your Name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="user_email" class="form-control" placeholder="Your Email" required>
-      </div>
-      <div class="form-group">
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
-      </div>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="user_name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="user_email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-  <!-- Popup notification -->
-  <div id="popupStatus"></div>
-</section>
-
-<!-- Styles for popup -->
-<style>
-  #popupStatus {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: bold;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    z-index: 1000;
-  }
-  #popupStatus.success { background-color: #4CAF50; }
-  #popupStatus.error { background-color: #f44336; }
-</style>
-
-<!-- EmailJS Script -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  emailjs.init('DNS-XyBr5C_PHsuz1'); // Your Public Key
-
-  const form = document.getElementById('contactForm');
-  const popup = document.getElementById('popupStatus');
-
-  function showPopup(message, type) {
-    popup.innerText = message;
-    popup.className = type; // success or error
-    popup.style.opacity = 1;
-    setTimeout(() => { popup.style.opacity = 0; }, 3000);
-  }
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    emailjs.sendForm('service_apfzjl6', 'AutoResponse_tphc1vj', this)
-      .then(() => {
-        showPopup("Message sent successfully!", "success");
-        form.reset();
-      }, (err) => {
-        showPopup("Failed to send message. Please try again.", "error");
-        console.error('EmailJS Error:', err);
-      });
-  });
-</script>
-
-</section>
+        <!-- Popup notification -->
+        <div id="popupStatus"></div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
+            <!-- Corporate Footer Logo -->
+            <div class="footer-logo">
+                <span class="corporate-icon">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="14" fill="#475569"/>
+                        <text x="16" y="20" text-anchor="middle" font-size="10" fill="white" 
+                              font-family="Inter, sans-serif" font-weight="600">P</text>
+                    </svg>
+                </span>
+                <div class="corporate-text-group">
+                    <span class="corporate-name">Prashanth</span>
+                    <span class="corporate-title">IT Professional</span>
+                    <span class="corporate-accent" style="background: #475569;"></span>
+                </div>
+            </div>
+
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/prashanth-sankar-51a712a8/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/prashanthche" class="social-link"><i class="fab fa-github"></i></a>
@@ -2670,6 +3129,35 @@
                 // In a real application, you would fetch data from an API here
                 console.log("Simulating data refresh...");
             }, 30000);
+        });
+    </script>
+
+    <!-- EmailJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init('DNS-XyBr5C_PHsuz1'); // Your Public Key
+
+        const form = document.getElementById('contactForm');
+        const popup = document.getElementById('popupStatus');
+
+        function showPopup(message, type) {
+            popup.innerText = message;
+            popup.className = type; // success or error
+            popup.style.opacity = 1;
+            setTimeout(() => { popup.style.opacity = 0; }, 3000);
+        }
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_apfzjl6', 'AutoResponse_tphc1vj', this)
+                .then(() => {
+                    showPopup("Message sent successfully!", "success");
+                    form.reset();
+                }, (err) => {
+                    showPopup("Failed to send message. Please try again.", "error");
+                    console.error('EmailJS Error:', err);
+                });
         });
     </script>
 </body>
