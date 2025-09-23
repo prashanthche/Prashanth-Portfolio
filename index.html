@@ -3133,32 +3133,41 @@
     </script>
 
     <!-- EmailJS Script -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init('DNS-XyBr5C_PHsuz1'); // Your Public Key
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init('DNS-XyBr5C_PHsuz1'); // Your Public Key
 
-        const form = document.getElementById('contactForm');
-        const popup = document.getElementById('popupStatus');
+  const form = document.getElementById('contactForm');
+  const popup = document.getElementById('popupStatus');
 
-        function showPopup(message, type) {
-            popup.innerText = message;
-            popup.className = type; // success or error
-            popup.style.opacity = 1;
-            setTimeout(() => { popup.style.opacity = 0; }, 3000);
-        }
+  function showPopup(message, type) {
+    popup.innerText = message;
+    popup.className = type; // success or error
+    popup.style.opacity = 1;
+    setTimeout(() => { popup.style.opacity = 0; }, 3000);
+  }
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-            emailjs.sendForm('service_apfzjl6', 'AutoResponse_tphc1vj', this)
-                .then(() => {
-                    showPopup("Message sent successfully!", "success");
-                    form.reset();
-                }, (err) => {
-                    showPopup("Failed to send message. Please try again.", "error");
-                    console.error('EmailJS Error:', err);
-                });
+    // 1. Send email to yourself (message received)
+    emailjs.sendForm('service_apfzjl6', 'AutoResponse_tphc1vj', this)
+      .then(() => {
+        // 2. Then send confirmation to user
+        return emailjs.send('service_apfzjl6', 'template_7w378yf', {
+          email: this.email.value,
+          name: this.name.value,
         });
+      })
+      .then(() => {
+        showPopup("Message sent successfully! Confirmation email delivered.", "success");
+        form.reset();
+      })
+      .catch((err) => {
+        showPopup("Failed to send message. Please try again.", "error");
+        console.error('EmailJS Error:', err);
+      });
+  });
     </script>
 </body>
 </html>
