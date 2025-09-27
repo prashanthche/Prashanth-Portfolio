@@ -690,7 +690,7 @@
         }
 
         /* Grafana Style Chart */
-        .grafana-chart {
+         grafana-chart {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 4px;
             padding: 10px;
@@ -934,7 +934,6 @@
     box-shadow: 0 0 12px rgba(75, 22, 249, 0.35);
     overflow: visible; /* make sure glow shows outside */
 }
-
 /* Technical Skills Heading */
 .section-title h2 {
     font-size: 2rem;
@@ -1213,78 +1212,400 @@
         /* Experience Section */
         .timeline {
             position: relative;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 40px 0;
         }
 
-        .timeline::after {
+        .timeline::before {
             content: '';
             position: absolute;
-            width: 6px;
-            background-color: var(--accent-blue);
+            width: 4px;
+            background: linear-gradient(to bottom, 
+                var(--accent-blue) 0%, 
+                rgba(59, 130, 246, 0.7) 30%, 
+                rgba(59, 130, 246, 0.5) 70%, 
+                var(--accent-green) 100%);
             top: 0;
             bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 3px; 
+            left: 30px;
+            z-index: 1;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
         }
 
         .timeline-item {
-            padding: 10px 40px;
+            padding: 20px 0 20px 80px;
             position: relative;
-            width: 50%;
-            box-sizing: border-box;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+            margin-bottom: 40px;
         }
 
-        .timeline-item:nth-child(odd) { 
-            left: 0;
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
+        .timeline-marker {
+            position: absolute;
+            left: 24px;
+            top: 25px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            z-index: 2;
+            transition: all 0.4s ease;
+            border: 2px solid var(--dark-bg);
+            animation: markerPulse 2s infinite;
+        }
+
+        @keyframes markerPulse {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.4);
+            background: var(--accent-green);
+            animation: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
 
         .timeline-content {
             padding: var(--spacing-lg);
             background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.4s ease;
+            border-left: 4px solid var(--accent-blue);
+            overflow: hidden;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(16, 185, 129, 0.03));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+        
+        .timeline-content:hover::before {
+            opacity: 1;
+        }
+        
+        .timeline-content:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            border-left-color: var(--accent-green);
         }
 
         .timeline-date {
             font-weight: 600;
             color: var(--accent-green);
             margin-bottom: var(--spacing-sm);
+            font-size: 0.9rem;
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 4px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover .timeline-date {
+            transform: translateX(5px);
+            background: rgba(16, 185, 129, 0.15);
+        }
+        
+        .timeline-role {
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
         }
 
-        .timeline-role {
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
+        .timeline-content:hover .timeline-role {
+            color: var(--accent-blue);
+        }
+
+        .timeline-role i {
+            margin-right: 10px;
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover .timeline-role i {
+            transform: scale(1.1);
+            color: var(--accent-green);
         }
 
         .timeline-company {
             color: var(--accent-blue);
             margin-bottom: var(--spacing-md);
+            font-size: 1.05rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
         }
 
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: var(--accent-green);
-            border: 4px solid var(--dark-bg);
-            border-radius: 50%;
-            top: 20px;
+        .timeline-content:hover .timeline-company {
+            color: var(--accent-purple);
+        }
+
+        .timeline-company i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover .timeline-company i {
+            transform: rotate(5deg);
+        }
+        
+        .timeline-content p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover p {
+            color: var(--text-primary);
+        }
+        
+        .achievement-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+            position: relative;
             z-index: 1;
         }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
+        
+        .achievement-list li {
+            margin-bottom: 8px;
+            padding-left: 22px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            transform: translateX(0);
         }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
+        
+        .timeline-content:hover .achievement-list li {
+            color: var(--text-primary);
+            transform: translateX(3px);
+        }
+        
+        .achievement-list li:before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover .achievement-list li:before {
+            color: var(--accent-blue);
+            transform: scale(1.2);
+        }
+        
+        .metrics {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .metric {
+            background: rgba(30, 41, 59, 0.7);
+            padding: 12px 15px;
+            border-radius: 6px;
+            text-align: center;
+            flex: 1;
+            margin: 5px;
+            min-width: 100px;
+            transition: all 0.4s ease;
+            border-top: 2px solid var(--accent-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .metric:hover::before {
+            left: 100%;
+        }
+        
+        .metric:hover {
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateY(-3px);
+            border-top-color: var(--accent-green);
+        }
+        
+        .metric-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .metric:hover .metric-value {
+            color: var(--accent-blue);
+        }
+        
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .metric:hover .metric-label {
+            color: var(--accent-green);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 0 5px 5px 0;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .tech-tag:hover::before {
+            left: 100%;
+        }
+        
+        .tech-tag:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            color: var(--accent-green);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        
+        .role-highlight {
+            display: inline-block;
+            padding: 3px 8px;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-gold);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover .role-highlight {
+            transform: scale(1.05);
+            background: rgba(245, 158, 11, 0.2);
+        }
+        
+        /* Progress indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-marker {
+                left: 14px;
+            }
+            
+            .metrics {
+                flex-direction: column;
+            }
+            
+            .metric {
+                margin: 5px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+                padding: 12px 30px;
+            }
         }
 
         /* Testimonials Section - Corporate Style */
@@ -1681,7 +2002,7 @@
         }
 
         /* Dashboard Styles */
-        .dashboard-header {
+      .dashboard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1786,21 +2107,21 @@
             color: var(--text-secondary);
         }
 
-        .progress-bar {
+        .skill-progress-container {
             height: 8px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             overflow: hidden;
         }
 
-        .progress {
+        .skill-progress-bar {
             height: 100%;
             border-radius: 4px;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
             position: relative;
         }
 
-        .progress::after {
+        .skill-progress-bar::after {
             content: '';
             position: absolute;
             top: 0;
@@ -1854,6 +2175,7 @@
             font-size: 0.75rem;
             font-weight: 700;
         }
+
 
         /* Download Buttons (Resume + Cover Letter) */
        .btn-download {
@@ -2342,125 +2664,317 @@
 </section>
 
     <!-- Experience Section -->
+     <link rel="stylesheet" href="experience.css">
     <section id="experience">
         <div class="container">
             <div class="section-title">
-                <h2>Work Experience</h2>
+                <h2><i class="fas fa-briefcase"></i> Professional Journey</h2>
             </div>
             <div class="timeline">
 
                 <!-- Stakelogic -->
                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
                     <div class="timeline-content card">
                         <div class="timeline-date">Jun 2023 - Jul 2025</div>
-                        <div class="timeline-role">Tier 2 - Technical Support Specialist</div>
-                        <div class="timeline-company">Stakelogic Live | Birkirkara</div>
-                        <p>Delivered end-to-end IT support for gaming platforms, resolving 95% of escalated tickets within SLA and maintaining uptime above 99.5%.</p>
+                        <div class="timeline-role"><i class="fas fa-user-tie"></i> Tier 2 - Technical Support Specialist <span class="role-highlight">Mid-Level</span></div>
+                        <div class="timeline-company"><i class="fas fa-building"></i> Stakelogic Live | Birkirkara, Malta</div>
+                        
+                        <p>Delivered comprehensive technical support for gaming platforms, resolving escalated tickets within SLA and maintaining high system availability.</p>
+                        
                         <ul class="achievement-list">
-                            <li>Conducted root cause analysis (RCA) using Kibana and Dynatrace, reducing repeat incidents by 20%</li>
-                            <li>Proficient in Java and JSON debugging, SQL querying, and Linux scripting</li>
-                            <li>Collaborated with Tier 3 teams to resolve complex problems</li>
-                            <li>Created knowledge bases and technical documentation</li>
+                            <li>Conducted root cause analysis using Kibana and Dynatrace, reducing repeat incidents by 20%</li>
+                            <li>Performed log analysis and debugging to identify and resolve technical issues</li>
+                            <li>Collaborated with Tier 3 teams to resolve complex technical problems</li>
+                            <li>Created knowledge bases and technical documentation for improved team efficiency</li>
+                            <li>Maintained platform uptime above 99.5% through proactive monitoring</li>
                         </ul>
+                        
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">95%</div>
+                                <div class="metric-label">SLA Resolution</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">99.5%</div>
+                                <div class="metric-label">Uptime</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">20%</div>
+                                <div class="metric-label">Incident Reduction</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Kibana</span>
+                            <span class="tech-tag">Splunk</span>
+                            <span class="tech-tag">Dynatrace</span>
+                            <span class="tech-tag">JSON</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">Log Analysis</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Slack</span>
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">Confluence</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Prosecure -->
                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
                     <div class="timeline-content card">
                         <div class="timeline-date">Sep 2021 - May 2023</div>
-                        <div class="timeline-role">IT Engineer</div>
-                        <div class="timeline-company">Prosecure Limited | Marsa</div>
+                        <div class="timeline-role"><i class="fas fa-user-cog"></i> IT Engineer <span class="role-highlight">Mid-Level</span></div>
+                        <div class="timeline-company"><i class="fas fa-building"></i> Prosecure Limited | Marsa, Malta</div>
+                        
                         <p>Managed Microsoft Active Directory, VMWare virtualization, and Veeam backups for enterprise IT operations.</p>
+                        
                         <ul class="achievement-list">
-                            <li>Improved system uptime to 99.9% through proactive monitoring</li>
+                            <li>Improved system uptime to 99.9% through proactive monitoring and maintenance</li>
                             <li>Successfully restored operations during disaster recovery incidents</li>
                             <li>Optimized Veeam backup strategy, cutting recovery time by 40%</li>
                             <li>Led migration of 50+ user accounts in Active Directory</li>
+                            <li>Implemented security measures to protect critical infrastructure</li>
                         </ul>
+                        
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">99.9%</div>
+                                <div class="metric-label">System Uptime</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">40%</div>
+                                <div class="metric-label">Recovery Time</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">50+</div>
+                                <div class="metric-label">Accounts Migrated</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Windows Server</span>
+                            <span class="tech-tag">Active Directory</span>
+                            <span class="tech-tag">VMWare</span>
+                            <span class="tech-tag">Veeam</span>
+                            <span class="tech-tag">Disaster Recovery</span>
+                            <span class="tech-tag">AIX</span>
+                            <span class="tech-tag">Network Systems</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Future Focus -->
                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
                     <div class="timeline-content card">
                         <div class="timeline-date">Jul 2020 - Sep 2021</div>
-                        <div class="timeline-role">IT Support Specialist</div>
-                        <div class="timeline-company">Future Focus Limited | Floriana</div>
+                        <div class="timeline-role"><i class="fas fa-headset"></i> IT Support Specialist <span class="role-highlight">Specialist</span></div>
+                        <div class="timeline-company"><i class="fas fa-building"></i> Future Focus Limited | Floriana, Malta</div>
+                        
                         <ul class="achievement-list">
                             <li>Provided technical support for staff, faculty, and students, ensuring minimal disruption</li>
                             <li>Managed hardware, software, and network resources, including LMS</li>
                             <li>Maintained and supported the educational portal with 99.5% uptime</li>
                             <li>Administered Shireburn payroll software, ensuring accurate salary processing</li>
-                            <li>Reduced ticket resolution time by 25%, improving satisfaction</li>
+                            <li>Reduced ticket resolution time by 25%, improving user satisfaction</li>
                             <li>Implemented security measures, reducing unauthorized access attempts by 40%</li>
-                            <li>Trained faculty/staff, reducing repeat requests by 15%</li>
+                            <li>Trained faculty and staff, reducing repeat support requests by 15%</li>
                         </ul>
+                        
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">99.5%</div>
+                                <div class="metric-label">Portal Uptime</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">25%</div>
+                                <div class="metric-label">Resolution Time</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">40%</div>
+                                <div class="metric-label">Security Improvement</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">LMS</span>
+                            <span class="tech-tag">Shireburn</span>
+                            <span class="tech-tag">Network Security</span>
+                            <span class="tech-tag">User Training</span>
+                            <span class="tech-tag">Ticketing Systems</span>
+                            <span class="tech-tag">Payroll Systems</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Force Recruitment -->
                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
                     <div class="timeline-content card">
                         <div class="timeline-date">Sep 2019 - May 2020</div>
-                        <div class="timeline-role">IT Support Engineer</div>
-                        <div class="timeline-company">Force Recruitment Agency | Mosta</div>
+                        <div class="timeline-role"><i class="fas fa-laptop-code"></i> IT Support Engineer <span class="role-highlight">Junior</span></div>
+                        <div class="timeline-company"><i class="fas fa-building"></i> Force Recruitment Agency | Mosta, Malta</div>
+                        
                         <ul class="achievement-list">
                             <li>Delivered multilingual IT support across remote and on-site environments</li>
                             <li>Ensured compliance with EU data protection and IT security standards</li>
-                            <li>Resolved 90% of tickets within SLA, increasing satisfaction by 20%</li>
+                            <li>Resolved 90% of tickets within SLA, increasing user satisfaction by 20%</li>
                             <li>Supported 300+ users across multiple sites with minimal downtime</li>
+                            <li>Maintained IT infrastructure for seamless recruitment operations</li>
                         </ul>
+                        
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">90%</div>
+                                <div class="metric-label">SLA Compliance</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">20%</div>
+                                <div class="metric-label">Satisfaction Increase</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">300+</div>
+                                <div class="metric-label">Users Supported</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">GDPR Compliance</span>
+                            <span class="tech-tag">Multilingual Support</span>
+                            <span class="tech-tag">Remote Assistance</span>
+                            <span class="tech-tag">Ticketing Systems</span>
+                            <span class="tech-tag">Security Standards</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- JKA Solutions -->
                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
                     <div class="timeline-content card">
                         <div class="timeline-date">Sep 2016 - Jun 2019</div>
-                        <div class="timeline-role">IT Support Specialist</div>
-                        <div class="timeline-company">JKA Solutions Pvt Ltd | Hyderabad</div>
+                        <div class="timeline-role"><i class="fas fa-desktop"></i> IT Support Specialist <span class="role-highlight">Specialist</span></div>
+                        <div class="timeline-company"><i class="fas fa-building"></i> JKA Solutions Pvt Ltd | Hyderabad, India</div>
+                        
                         <ul class="achievement-list">
                             <li>Provided end-user support for hardware, software, and network issues</li>
                             <li>Installed, configured, and maintained systems and peripherals</li>
-                            <li>Resolved issues with minimal downtime</li>
+                            <li>Resolved technical issues with minimal downtime</li>
                             <li>Supported testing, documentation, and quality checks</li>
                             <li>Assisted in process and inventory management for smooth operations</li>
                         </ul>
+                        
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">98%</div>
+                                <div class="metric-label">Issue Resolution</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">100+</div>
+                                <div class="metric-label">Systems Maintained</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">3</div>
+                                <div class="metric-label">Years Experience</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Hardware Support</span>
+                            <span class="tech-tag">Software Installation</span>
+                            <span class="tech-tag">Network Devices</span>
+                            <span class="tech-tag">Technical Documentation</span>
+                            <span class="tech-tag">Inventory Management</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Giesecke & Devrient -->
                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
                     <div class="timeline-content card">
                         <div class="timeline-date">Aug 2015 - Aug 2016</div>
-                        <div class="timeline-role">Technical Assistant</div>
-                        <div class="timeline-company">Giesecke & Devrient India Pvt Ltd | Chennai</div>
+                        <div class="timeline-role"><i class="fas fa-tools"></i> Technical Assistant <span class="role-highlight">Entry Level</span></div>
+                        <div class="timeline-company"><i class="fas fa-building"></i> Giesecke & Devrient India Pvt Ltd | Chennai, India</div>
+                        
                         <ul class="achievement-list">
                             <li>Provided technical support in operations, maintenance, and troubleshooting</li>
                             <li>Assisted engineers with testing, documentation, and quality checks</li>
                             <li>Ensured compliance with company standards and secure workflows</li>
                             <li>Supported processes and coordinated inventory for operations</li>
                         </ul>
+                        
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">Compliance</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">50+</div>
+                                <div class="metric-label">Tests Assisted</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">1</div>
+                                <div class="metric-label">Year Experience</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Technical Support</span>
+                            <span class="tech-tag">Quality Assurance</span>
+                            <span class="tech-tag">Documentation</span>
+                            <span class="tech-tag">Compliance</span>
+                            <span class="tech-tag">Inventory Coordination</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Zebronics -->
                 <div class="timeline-item">
+                    <div class="timeline-marker"></div>
                     <div class="timeline-content card">
                         <div class="timeline-date">Dec 2014 - Aug 2015</div>
-                        <div class="timeline-role">Technical Research Assistant</div>
-                        <div class="timeline-company">Zebronics India Pvt Ltd | Chennai</div>
+                        <div class="timeline-role"><i class="fas fa-microchip"></i> Technical Research Assistant <span class="role-highlight">Research</span></div>
+                        <div class="timeline-company"><i class="fas fa-building"></i> Zebronics India Private Limited | Chennai, India</div>
+                        
                         <ul class="achievement-list">
                             <li>Assembled, configured, and optimized computer hardware systems</li>
                             <li>Conducted diagnostics, benchmarking, and component-level troubleshooting</li>
+                            <li>Researched and tested new hardware components for performance evaluation</li>
                         </ul>
+                        
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">100+</div>
+                                <div class="metric-label">Systems Built</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">99%</div>
+                                <div class="metric-label">Stability Rate</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">9</div>
+                                <div class="metric-label">Months Experience</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Hardware Assembly</span>
+                            <span class="tech-tag">System Configuration</span>
+                            <span class="tech-tag">Performance Benchmarking</span>
+                            <span class="tech-tag">Hardware Diagnostics</span>
+                            <span class="tech-tag">Component Troubleshooting</span>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
-    </section>
+        </section>
 
     <!-- Certifications Section -->
     <section id="certifications">
@@ -2594,7 +3108,7 @@
     </section>
 
     <!-- Dashboard Section -->
-    <section id="dashboard" class="dashboard">
+      <section id="dashboard" class="dashboard">
         <div class="container">
             <div class="dashboard-header">
                 <div>
@@ -2664,37 +3178,37 @@
                 </div>
 
                 <!-- Skill Proficiency Card -->
-                <div class="dashboard-card fade-in delay-2 card-wide">
-                    <h3><i class="fas fa-user-cog"></i> Skill Proficiency</h3>
-                    <p>Your technical skill levels and certifications</p>
-                    <div class="skills-container">
-                        <div class="skill">
-                            <label>System Administration <span>90%</span></label>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label>Network Monitoring <span>85%</span></label>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label>Technical Support <span>95%</span></label>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label>Security Protocols <span>78%</span></label>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 78%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Skill Proficiency Card - Updated -->
+<div class="dashboard-card fade-in delay-2 card-wide">
+    <h3><i class="fas fa-user-cog"></i> Skill Proficiency</h3>
+    <p>Your technical skill levels and certifications</p>
+    <div class="skills-container">
+        <div class="skill">
+            <label>System Administration <span>90%</span></label>
+            <div class="skill-progress-container">
+                <div class="skill-progress-bar" data-width="90"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <label>Network Monitoring <span>85%</span></label>
+            <div class="skill-progress-container">
+                <div class="skill-progress-bar" data-width="85"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <label>Technical Support <span>95%</span></label>
+            <div class="skill-progress-container">
+                <div class="skill-progress-bar" data-width="95"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <label>Security Protocols <span>78%</span></label>
+            <div class="skill-progress-container">
+                <div class="skill-progress-bar" data-width="78"></div>
+            </div>
+        </div>
+    </div>
+</div>
                 <!-- Backup Optimization Card -->
                 <div class="dashboard-card fade-in delay-1">
                     <h3><i class="fas fa-database"></i> Backup Optimization</h3>
@@ -3196,6 +3710,66 @@
         console.error('EmailJS Error:', err);
       });
   });
-    </script>
+
+    // Animation for timeline items when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Progress bar animation
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.querySelector('.page-scroll-indicator').style.width = scrolled + '%';
+            });
+        });
+      function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress-bar');
+    skillBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        bar.style.width = '0%'; // Reset for animation
+        setTimeout(() => {
+            bar.style.width = width + '%';
+        }, 100);
+    });
+}
+
+// Animate when dashboard section is visible
+const dashboardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setTimeout(animateSkillBars, 500);
+        }
+    });
+}, { threshold: 0.3 });
+
+const dashboardSection = document.getElementById('dashboard');
+if (dashboardSection) {
+    dashboardObserver.observe(dashboardSection);
+}
+
+// Update scroll indicator function
+window.addEventListener('scroll', function() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.querySelector('.page-scroll-indicator').style.width = scrolled + '%';
+});
+
+</script>
 </body>
 </html>
