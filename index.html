@@ -2459,6 +2459,47 @@ nav {
   object-fit: contain;
   display: block;
 }
+        /* Hamburger Menu Styles */
+.hamburger {
+    display: none; /* hidden by default, shown only on mobile */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none; /* hide menu initially */
+        gap: 1rem;
+        background-color: #f8f8f8; /* optional */
+        padding: 1rem;
+        position: absolute;
+        top: 60px; /* adjust based on your header height */
+        right: 10px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
 
     </style>
 </head>
@@ -2467,6 +2508,12 @@ nav {
     <header>  
         <div class="container">
             <nav>
+                <!-- Hamburger Menu -->
+<div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
                 <!-- Corporate Header Logo -->
                 <a href="#" class="corporate-logo">
                     <span class="corporate-icon">
@@ -3938,7 +3985,13 @@ window.addEventListener('scroll', function() {
     const scrolled = (winScroll / height) * 100;
     document.querySelector('.page-scroll-indicator').style.width = scrolled + '%';
 });
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('nav ul');
 
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
 </script>
 </body>
 </html>
